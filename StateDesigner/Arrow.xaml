@@ -1,0 +1,11 @@
+﻿<UserControl x:Class="StateDesigner.Arrow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Canvas x:Name="LayoutRoot">
+        <Path x:Name="bezier">
+        </Path>
+        <Line x:Name="Cap1" />
+        <Line x:Name="Cap2" />
+        <Line x:Name="Connector" />
+    </Canvas>
+</UserControl>

@@ -1,0 +1,99 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="WebApplication.Site1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0039)http://wp-themes.com/garland-revisited/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   
+   <title>State Magic</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder> 
+    <style type="text/css" media="screen">
+        @import "style.css";
+    </style>
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lobster">
+	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nobile">
+	<link rel="stylesheet" type="text/css" href="niftyCorners.css">
+	
+	
+	
+	<script type="text/javascript" src="niftycube.js"></script>
+
+	
+</head>
+<body class="home blog sidebars">
+    <div id="navigation">
+    </div>
+    <div id="wrapper">
+        <div id="container" class="clear-block">
+            <div id="header">
+                <div id="logo-floater">
+                    <h1>
+                        <a style="font-family:Lobster; font-size:280%" href="default.htm">State Magic</a>
+						<span style="font-size: 100%; font-family:Nobile">The cloud-based state machine</span>
+                    </h1>
+                </div>
+                <!-- <ul class="links primary-links"> -->
+                
+                <ul id="dropmenu">
+                    <li class="page_item page-item-2"><a href="SignIn.aspx" title="Sign In">
+                        Sign In</a></li>
+                    <li class="page_item page-item-46"><a href="http://wp-themes.com/?page_id=46" title="Parent Page">
+                        Parent Page</a>
+                        <ul>
+                            <li class="page_item page-item-49"><a href="http://wp-themes.com/?page_id=49" title="Sub-page">
+                                Sub-page</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- /header -->
+            <div id="sidebar-left" class="sidebar">
+						
+           
+            </div>
+            <div id="center">
+                <div id="squeeze">
+                    <div class="right-corner">
+                        <div class="left-corner">
+                            <!-- begin content -->
+				
+                          
+                           <form id="form1" runat="server">
+                     
+                                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                
+                                </asp:ContentPlaceHolder>
+                            
+                            </form>
+
+                            <!-- end content -->
+                            <span class="clear"></span>
+                            <div id="footer">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+			</div>
+	</div>
+	</div>
+      
+        <!-- /container -->
+  
+    <!-- /layout -->
+	
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+    
