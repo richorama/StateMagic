@@ -143,6 +143,7 @@ namespace WpfClient
                 this.RemoveControl(this.grabArrow);
                 this.grabArrow = null;
             }
+            this.activeControl = null;
         }
 
         void sc_MouseDown(object sender, MouseButtonEventArgs e)
@@ -169,6 +170,7 @@ namespace WpfClient
 
         void sc_MouseMove(object sender, MouseEventArgs e)
         {
+            
             if (this.m_mouseDown)
             { 
                 Point position = e.GetPosition(this);
@@ -374,6 +376,13 @@ namespace WpfClient
             {
                 CreateNewState();
             }
+        }
+
+        private void UserControl_MouseMove(object sender, MouseEventArgs e)
+        {
+            button1.Content = e.GetPosition(this).ToString();
+            sc_MouseMove(sender, e);
+
         }
 
         

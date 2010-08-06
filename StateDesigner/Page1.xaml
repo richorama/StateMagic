@@ -4,12 +4,12 @@
     xmlns:local="clr-namespace:WpfClient"
     MouseLeave="Page_MouseLeave">
     <Grid>
-            
-   
+
+
         <ScrollViewer Name="scrollViewer1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" VerticalAlignment="Top">
         
         
-            <Canvas Name="canvas1" Width="2000" Height="2000">
+            <Canvas MouseMove="UserControl_MouseMove" Name="canvas1" Width="2000" Height="2000" IsHitTestVisible="True" Background="White">
                 <!--
                 <Canvas.ContextMenu>
                     <ContextMenu>
