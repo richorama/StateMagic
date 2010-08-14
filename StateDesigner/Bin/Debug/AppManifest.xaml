@@ -1,5 +1,0 @@
-﻿<Deployment xmlns="http://schemas.microsoft.com/client/2007/deployment" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" EntryPointAssembly="StateDesigner" EntryPointType="StateDesigner.App" RuntimeVersion="3.0.40818.0">
-  <Deployment.Parts>
-    <AssemblyPart x:Name="StateDesigner" Source="StateDesigner.dll" />
-  </Deployment.Parts>
-</Deployment>
