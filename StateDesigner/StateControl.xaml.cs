@@ -28,10 +28,15 @@ namespace WpfClient
         public StateControl()
         {
             InitializeComponent();
-            DestroyGrab();
             this.grabControl1.Grabbed += new ControlGrabbedHandler(this.OnGrabControlGrabbed);
             this.textBox1.Visibility = Visibility.Collapsed;
             this.label2.Visibility = Visibility.Collapsed;
+            this.grabArrow1 = new Arrow(new Point(110, 110), new Point(125, 125));
+            grabArrow1.Stroke = new SolidColorBrush(Colors.DarkGray);
+            grabArrow1.Update();
+            DestroyGrab();
+            Page1.Instance.AddControl(grabArrow1);
+
         }
 
         public string DisplayName
@@ -57,6 +62,7 @@ namespace WpfClient
         private void UserControl_MouseEnter(object sender, MouseEventArgs e)
         {
             this.HasMouseHover = true;
+            this.StartEditingDisplayName();
             CreateGrab();
         }
 
@@ -64,6 +70,7 @@ namespace WpfClient
         {
             grabControl1.Visibility = Visibility.Visible;
             grabArrow1.Visibility = Visibility.Visible;
+            Page1.CalcuateArrowPosition(this, grabControl1, grabArrow1);
         }
 
 
@@ -79,6 +86,7 @@ namespace WpfClient
         {
             this.HasMouseHover = false;
             this.DestroyGrab();
+            this.EndEditingDisplayName();
         }
 
         private void OnGrabControlGrabbed(object sender, MouseButtonEventArgs e)

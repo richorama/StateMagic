@@ -79,7 +79,7 @@ namespace WpfClient
             this.canvas1.Children.Add(control);
 
             //TODO: Sort this out
-            //control.MouseRightButtonUp += new MouseButtonEventHandler(OnMouseRightButtonUp);
+            control.MouseLeftButtonUp += new MouseButtonEventHandler(OnMouseRightButtonUp);
 
             if (control is StateControl)
             {
@@ -295,7 +295,7 @@ namespace WpfClient
             arrow.StrokeThickness = 4;*/
             arrow.Stroke = new SolidColorBrush(Colors.DarkGray);
             this.AddControl(arrow);
-            arrow.Update();
+            //arrow.Update();
             return arrow;
         }
 
@@ -316,7 +316,7 @@ namespace WpfClient
             {
                 (canvas1.ContextMenu.Items[0] as MenuItem).IsEnabled = false;
             }
-             */
+            */ 
         }
 
         private object rightClickItem = null;
