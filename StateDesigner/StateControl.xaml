@@ -3,7 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:WpfClient"         
     xmlns:StateDesigner="clr-namespace:StateDesigner"
-    Height="150" Width="150" MouseEnter="UserControl_MouseEnter" MouseLeave="UserControl_MouseLeave">
+    Height="150" Width="150" MouseEnter="UserControl_MouseEnter" MouseLeave="UserControl_MouseLeave" xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input">
     
     <Grid>
         <Rectangle Name="transparentRectangle" Stroke="Transparent" Fill="Transparent" Height="48" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="48"></Rectangle>
@@ -14,5 +14,6 @@
         <TextBox Margin="33,62.52,33,64.48" Name="textBox1" LostFocus="textBox1_LostFocus" KeyDown="textBox1_KeyDown" BorderBrush="DarkGray" BorderThickness="2" />
         <TextBlock Height="28" Margin="33,0,33,33" Name="label2" VerticalAlignment="Bottom" Foreground="Gray" HorizontalAlignment="Center">(start)</TextBlock>
         <StateDesigner:Arrow x:Name="grabArrow1" Stroke="DarkGray" StartPoint="110,110" EndPoint="125,125" StrokeThickness="3"></StateDesigner:Arrow>
+        <StateDesigner:DeleteButton HorizontalAlignment="Left" Margin="25,25,0,0" x:Name="deleteButton1" VerticalAlignment="Top" />
     </Grid>
 </UserControl>

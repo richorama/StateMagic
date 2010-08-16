@@ -14,7 +14,9 @@ using StateDesigner;
 
 namespace WpfClient
 {
-    
+
+
+    public delegate void StateDeletedHandler(object sender, MouseButtonEventArgs e);
 
     /// <summary>
     /// Interaction logic for StateControl.xaml
@@ -58,6 +60,8 @@ namespace WpfClient
         }
 
         public event ControlGrabbedHandler GrabControlGrabbed;
+
+        public event StateDeletedHandler StateDeleted;
 
         private void UserControl_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -264,6 +268,11 @@ namespace WpfClient
             {
                 return !this.StartState;
             }
+        }
+
+        private void ellipse2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
         }
 
     }
