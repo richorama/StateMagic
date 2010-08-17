@@ -33,11 +33,7 @@ namespace WpfClient
             this.grabControl1.Grabbed += new ControlGrabbedHandler(this.OnGrabControlGrabbed);
             this.textBox1.Visibility = Visibility.Collapsed;
             this.label2.Visibility = Visibility.Collapsed;
-            this.grabArrow1 = new Arrow(new Point(110, 110), new Point(125, 125));
-            grabArrow1.Stroke = new SolidColorBrush(Colors.DarkGray);
-            grabArrow1.Update();
             DestroyGrab();
-            Page1.Instance.AddControl(grabArrow1);
             this.deleteButton1.DeletePressed += new DeletePressed(this.Delete);
 
         }
@@ -46,7 +42,7 @@ namespace WpfClient
         {
             get
             {
-                return this.label1.Text == null ? "" : this.label1.Text as string;
+                return this.label1.Text == null ? string.Empty : this.label1.Text as string;
             }
             set
             {
@@ -73,9 +69,8 @@ namespace WpfClient
 
         private void CreateGrab()
         {
-            grabControl1.Visibility = Visibility.Visible;
-            grabArrow1.Visibility = Visibility.Visible;
-            Page1.CalcuateArrowPosition(this, grabControl1, grabArrow1);
+            this.grabControl1.Visibility = Visibility.Visible;
+            this.image1.Visibility = Visibility.Visible;
             if (this.CanDelete)
             {
                 this.deleteButton1.Visibility = Visibility.Visible;
@@ -87,7 +82,7 @@ namespace WpfClient
         private void DestroyGrab()
         {  
             this.grabControl1.Visibility = Visibility.Collapsed;
-            this.grabArrow1.Visibility = Visibility.Collapsed;
+            this.image1.Visibility = Visibility.Collapsed;
             this.deleteButton1.Visibility = Visibility.Collapsed;
         }
 

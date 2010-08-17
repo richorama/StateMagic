@@ -79,9 +79,6 @@ namespace WpfClient
         {
             this.canvas1.Children.Add(control);
 
-            //TODO: Sort this out
-            control.MouseLeftButtonUp += new MouseButtonEventHandler(OnMouseRightButtonUp);
-
             if (control is StateControl)
             {
                 this.stateControls.Add(control as StateControl);
@@ -243,10 +240,6 @@ namespace WpfClient
             grabArrow = new Arrow();
             CalcuateArrowPosition(sender as StateControl, grabControl, grabArrow);
             
-            /*grabArrow.HeadHeight = 10;
-            grabArrow.HeadWidth = 15;
-            grabArrow.StrokeThickness = 4;
-             */
             grabArrow.Stroke = new SolidColorBrush(Colors.DarkGray);
             this.AddControl(grabArrow);
         }
@@ -291,36 +284,11 @@ namespace WpfClient
             head.AddArrow(arrow, StateControl.ArrowDirection.In);
             tail.AddArrow(arrow, StateControl.ArrowDirection.Out);
             CalcuateArrowPosition(tail, head, arrow);
-            /*arrow.HeadHeight = 10;
-            arrow.HeadWidth = 15;
-            arrow.StrokeThickness = 4;*/
             arrow.Stroke = new SolidColorBrush(Colors.DarkGray);
             this.AddControl(arrow);
-            //arrow.Update();
+            arrow.Update();
             return arrow;
         }
-
-        void OnMouseRightButtonUp(object sender, MouseButtonEventArgs e)
-        {
-            /*
-            this.rightClickItem = sender;
-
-            // enable the rename option?
-            (canvas1.ContextMenu.Items[1] as MenuItem).IsEnabled = sender is INameable;
-            
-            // enable the delete option?
-            if (sender is IDeleteable)
-            {
-                (canvas1.ContextMenu.Items[0] as MenuItem).IsEnabled = (sender as IDeleteable).CanDelete;
-            }
-            else
-            {
-                (canvas1.ContextMenu.Items[0] as MenuItem).IsEnabled = false;
-            }
-            */ 
-        }
-
-        
 
         private void DeleteEvent(object sender, MouseButtonEventArgs e)
         {
@@ -356,57 +324,7 @@ namespace WpfClient
             }
         }
 
-        /*
-        private void MenuItem_Delete(object sender, RoutedEventArgs e)
-        {
-            if (this.rightClickItem != null)
-            {
-                if (this.rightClickItem is IDeleteable)
-                {
-                    if (!(this.rightClickItem as IDeleteable).CanDelete)
-                    {
-                        return;
-                    }
-
-                    if (this.rightClickItem is StateControl)
-                    {
-                        StateControl sc = this.rightClickItem as StateControl;
-                        foreach (Arrow arrow in sc.ArrowsIn)
-                        {
-                            arrow.TailControl.ArrowsOut.Remove(arrow);
-                            RemoveControl(arrow);
-                        }
-                        foreach (Arrow arrow in sc.ArrowsOut)
-                        {
-                            arrow.HeadControl.ArrowsIn.Remove(arrow);
-                            RemoveControl(arrow);
-                        }
-                        RemoveControl(sc);
-                        sc = null;
-                    }
-
-
-                    if (this.rightClickItem is Arrow)
-                    {
-                        Arrow arrow = this.rightClickItem as Arrow;
-                        arrow.HeadControl.ArrowsIn.Remove(arrow);
-                        arrow.TailControl.ArrowsOut.Remove(arrow);
-                        RemoveControl(arrow);
-                    }
-                }
-            }
-        }
        
-
-        private void MenuItem_Rename(object sender, RoutedEventArgs e)
-        {
-            if (rightClickItem is INameable)
-            {
-                INameable nameable = this.rightClickItem as INameable;
-                nameable.StartEditingDisplayName();
-            }
-        }
- */
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -417,9 +335,7 @@ namespace WpfClient
 
         private void UserControl_MouseMove(object sender, MouseEventArgs e)
         {
-            button1.Content = e.GetPosition(this).ToString();
             sc_MouseMove(sender, e);
-
         }
 
         

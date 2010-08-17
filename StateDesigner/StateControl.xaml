@@ -8,12 +8,19 @@
     <Grid>
         <Rectangle Name="transparentRectangle" Stroke="Transparent" Fill="Transparent" Height="48" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="48"></Rectangle>
         <Ellipse Name="ellipse0" Stroke="Transparent" Fill="Transparent"></Ellipse>
-        <Ellipse Name="ellipse1" Stroke="LightBlue" StrokeThickness="3" Fill="AliceBlue" Margin="25" />
+        <Image Height="32" HorizontalAlignment="Left" Margin="113,100,0,0" Name="image1" Stretch="None" VerticalAlignment="Top" Width="25" Source="/StateDesigner;component/Arrow.png" />
+        <Ellipse Name="ellipse1" Stroke="#FF6FC4D8" StrokeThickness="3" Margin="25">
+            <Ellipse.Fill>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="AliceBlue" Offset="0" />
+                    <GradientStop Color="#FF98CFE8" Offset="1" />
+                </LinearGradientBrush>
+            </Ellipse.Fill>
+        </Ellipse>
         <TextBlock Margin="25,51,25,54" Name="label1" Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Center">Label</TextBlock>
         <local:GrabControl x:Name="grabControl1" HorizontalAlignment="Right" Width="15" Height="15" VerticalAlignment="Bottom" Margin="0,0,12,12"></local:GrabControl>
         <TextBox Margin="33,62.52,33,64.48" Name="textBox1" LostFocus="textBox1_LostFocus" KeyDown="textBox1_KeyDown" BorderBrush="DarkGray" BorderThickness="2" />
         <TextBlock Height="28" Margin="33,0,33,33" Name="label2" VerticalAlignment="Bottom" Foreground="Gray" HorizontalAlignment="Center">(start)</TextBlock>
-        <StateDesigner:Arrow x:Name="grabArrow1" Stroke="DarkGray" StartPoint="110,110" EndPoint="125,125" StrokeThickness="3"></StateDesigner:Arrow>
         <StateDesigner:DeleteButton HorizontalAlignment="Left" Margin="25,25,0,0" x:Name="deleteButton1" VerticalAlignment="Top" />
     </Grid>
 </UserControl>
