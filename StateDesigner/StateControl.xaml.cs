@@ -38,6 +38,7 @@ namespace WpfClient
             grabArrow1.Update();
             DestroyGrab();
             Page1.Instance.AddControl(grabArrow1);
+            this.deleteButton1.DeletePressed += new DeletePressed(this.Delete);
 
         }
 
@@ -75,6 +76,7 @@ namespace WpfClient
             grabControl1.Visibility = Visibility.Visible;
             grabArrow1.Visibility = Visibility.Visible;
             Page1.CalcuateArrowPosition(this, grabControl1, grabArrow1);
+            this.deleteButton1.Visibility = Visibility.Visible;
         }
 
 
@@ -83,6 +85,7 @@ namespace WpfClient
         {  
             this.grabControl1.Visibility = Visibility.Collapsed;
             this.grabArrow1.Visibility = Visibility.Collapsed;
+            this.deleteButton1.Visibility = Visibility.Collapsed;
         }
 
 
@@ -270,8 +273,12 @@ namespace WpfClient
             }
         }
 
-        private void ellipse2_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void Delete(object sender, MouseButtonEventArgs e)
         {
+            if (StateDeleted != null)
+            {
+                StateDeleted(this, e);
+            }
 
         }
 

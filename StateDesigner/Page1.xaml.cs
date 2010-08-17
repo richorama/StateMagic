@@ -62,6 +62,7 @@ namespace WpfClient
             sc.MouseLeftButtonUp += new MouseButtonEventHandler(sc_MouseUp);
             sc.MouseMove += new MouseEventHandler(sc_MouseMove);
             sc.GrabControlGrabbed += new ControlGrabbedHandler(this.OnGrabControlGrabbed);
+            sc.StateDeleted += new StateDeletedHandler(this.DeleteEvent);
 
             this.AddControl(sc);
             this.SetPosition(sc, new Point(10 * initIndex, 10 * initIndex));
@@ -319,8 +320,43 @@ namespace WpfClient
             */ 
         }
 
-        private object rightClickItem = null;
+        
 
+        private void DeleteEvent(object sender, MouseButtonEventArgs e)
+        {
+            if (!(sender as IDeleteable).CanDelete)
+            {
+                return;
+            }
+
+            if (sender is StateControl)
+            {
+                StateControl sc = sender as StateControl;
+                foreach (Arrow arrow in sc.ArrowsIn)
+                {
+                    arrow.TailControl.ArrowsOut.Remove(arrow);
+                    RemoveControl(arrow);
+                }
+                foreach (Arrow arrow in sc.ArrowsOut)
+                {
+                    arrow.HeadControl.ArrowsIn.Remove(arrow);
+                    RemoveControl(arrow);
+                }
+                RemoveControl(sc);
+                sc = null;
+            }
+
+
+            if (sender is Arrow)
+            {
+                Arrow arrow = sender as Arrow;
+                arrow.HeadControl.ArrowsIn.Remove(arrow);
+                arrow.TailControl.ArrowsOut.Remove(arrow);
+                RemoveControl(arrow);
+            }
+        }
+
+        /*
         private void MenuItem_Delete(object sender, RoutedEventArgs e)
         {
             if (this.rightClickItem != null)
@@ -360,6 +396,7 @@ namespace WpfClient
                 }
             }
         }
+       
 
         private void MenuItem_Rename(object sender, RoutedEventArgs e)
         {
@@ -369,7 +406,7 @@ namespace WpfClient
                 nameable.StartEditingDisplayName();
             }
         }
-
+ */
         private void textBox1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
