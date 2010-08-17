@@ -76,7 +76,10 @@ namespace WpfClient
             grabControl1.Visibility = Visibility.Visible;
             grabArrow1.Visibility = Visibility.Visible;
             Page1.CalcuateArrowPosition(this, grabControl1, grabArrow1);
-            this.deleteButton1.Visibility = Visibility.Visible;
+            if (this.CanDelete)
+            {
+                this.deleteButton1.Visibility = Visibility.Visible;
+            }
         }
 
 

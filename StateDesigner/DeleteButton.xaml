@@ -4,10 +4,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="21" d:DesignWidth="21" xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input">
+    d:DesignHeight="21" d:DesignWidth="21" xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input"
+    MouseLeftButtonDown="ellipse2_MouseLeftButtonUp">
     
-    <Grid x:Name="LayoutRoot" Background="White" Height="21" Width="21" MouseLeftButtonUp="ellipse2_MouseLeftButtonUp">
-        <Ellipse Height="21" HorizontalAlignment="Left" Name="ellipse2" Stroke="#FFC41E1E" StrokeThickness="2" VerticalAlignment="Top" Width="21" MouseLeftButtonUp="ellipse2_MouseLeftButtonUp">
+    <Grid x:Name="LayoutRoot" Background="White" Height="21" Width="21">
+        <Ellipse Height="21" HorizontalAlignment="Left" Name="ellipse2" Stroke="#FFC41E1E" StrokeThickness="2" VerticalAlignment="Top" Width="21">
             <Ellipse.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFF5A291" Offset="0" />
