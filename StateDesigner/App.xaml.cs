@@ -24,9 +24,23 @@ namespace StateDesigner
             InitializeComponent();
         }
 
+        public static string Username { get; set; }
+
+        public static int ModelId { get; set; }
+
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             this.RootVisual = new WpfClient.Page1();
+
+            // read input parameters
+            Username = e.InitParams["username"];
+            string modelString = e.InitParams["modelid"];
+            if (!string.IsNullOrEmpty(modelString))
+            {
+                int modelid = 0;
+                int.TryParse(modelString, out modelid);
+                ModelId = modelid;
+            }
         }
 
         private void Application_Exit(object sender, EventArgs e)
