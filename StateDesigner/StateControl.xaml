@@ -17,9 +17,8 @@
                 </LinearGradientBrush>
             </Ellipse.Fill>
         </Ellipse>
-        <TextBlock Margin="25,51,25,54" Name="label1" Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Center">Label</TextBlock>
+        <TextBlock Margin="25,51,25,54" Name="label1" Foreground="Gray" VerticalAlignment="Center" HorizontalAlignment="Center" MouseLeftButtonDown="label1_MouseLeftButtonDown">Label</TextBlock>
         <local:GrabControl x:Name="grabControl1" HorizontalAlignment="Right" Width="15" Height="15" VerticalAlignment="Bottom" Margin="0,0,12,12"></local:GrabControl>
-        <TextBox Margin="33,62.52,33,64.48" Name="textBox1" LostFocus="textBox1_LostFocus" KeyDown="textBox1_KeyDown" BorderBrush="DarkGray" BorderThickness="2" />
         <TextBlock Height="28" Margin="33,0,33,33" Name="label2" VerticalAlignment="Bottom" Foreground="Gray" HorizontalAlignment="Center">(start)</TextBlock>
         <StateDesigner:DeleteButton HorizontalAlignment="Left" Margin="25,25,0,0" x:Name="deleteButton1" VerticalAlignment="Top" />
     </Grid>

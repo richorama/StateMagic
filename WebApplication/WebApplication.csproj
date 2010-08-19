@@ -113,7 +113,6 @@
     <Content Include="SignIn.aspx" />
     <Content Include="Silverlight.js" />
     <Content Include="StateDesignerTestPage.aspx" />
-    <Content Include="StateDesignerTestPage.html" />
     <Content Include="style.css" />
     <Content Include="Web.config" />
     <Content Include="WebServices.asmx" />

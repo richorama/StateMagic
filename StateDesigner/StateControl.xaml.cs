@@ -21,7 +21,7 @@ namespace WpfClient
     /// <summary>
     /// Interaction logic for StateControl.xaml
     /// </summary>
-    public partial class StateControl : UserControl, IJoinable, INameable, IDeleteable
+    public partial class StateControl : UserControl, IJoinable, IDeleteable
     {
         public Color LightBlue = new Color() { A = 255, R = 173, G = 216, B = 230 };
 
@@ -31,10 +31,10 @@ namespace WpfClient
         {
             InitializeComponent();
             this.grabControl1.Grabbed += new ControlGrabbedHandler(this.OnGrabControlGrabbed);
-            this.textBox1.Visibility = Visibility.Collapsed;
             this.label2.Visibility = Visibility.Collapsed;
             DestroyGrab();
             this.deleteButton1.DeletePressed += new DeletePressed(this.Delete);
+            
 
         }
 
@@ -63,7 +63,6 @@ namespace WpfClient
         private void UserControl_MouseEnter(object sender, MouseEventArgs e)
         {
             this.HasMouseHover = true;
-            this.StartEditingDisplayName();
             CreateGrab();
         }
 
@@ -75,6 +74,8 @@ namespace WpfClient
             {
                 this.deleteButton1.Visibility = Visibility.Visible;
             }
+            this.label1.TextDecorations = TextDecorations.Underline;
+            this.label1.FontWeight = FontWeights.Bold;
         }
 
 
@@ -84,6 +85,9 @@ namespace WpfClient
             this.grabControl1.Visibility = Visibility.Collapsed;
             this.image1.Visibility = Visibility.Collapsed;
             this.deleteButton1.Visibility = Visibility.Collapsed;
+            this.label1.TextDecorations = null;
+            this.label1.FontWeight = FontWeights.Normal;
+
         }
 
 
@@ -91,7 +95,6 @@ namespace WpfClient
         {
             this.HasMouseHover = false;
             this.DestroyGrab();
-            this.EndEditingDisplayName();
         }
 
         private void OnGrabControlGrabbed(object sender, MouseButtonEventArgs e)
@@ -212,34 +215,6 @@ namespace WpfClient
             }
         }
 
-        public void StartEditingDisplayName()
-        {
-            this.label1.Visibility = Visibility.Collapsed;
-            this.textBox1.Visibility = Visibility.Visible;
-            this.textBox1.Text = this.DisplayName;
-            this.textBox1.Focus();
-        }
-
-        public void EndEditingDisplayName()
-        {
-            this.DisplayName = textBox1.Text;
-            this.label1.Visibility = Visibility.Visible;
-            this.textBox1.Visibility = Visibility.Collapsed;
-        }
-
-        private void textBox1_LostFocus(object sender, RoutedEventArgs e)
-        {
-            EndEditingDisplayName();
-        }
-
-        private void textBox1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter || e.Key == Key.Tab)
-            {
-                EndEditingDisplayName();
-            }
-        }
-
         private bool startState = false;
         public bool StartState
         {
@@ -279,6 +254,23 @@ namespace WpfClient
             }
 
         }
+
+        private void label1_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            RenameState rs = new RenameState();
+            rs.Text = this.DisplayName;
+            rs.Show();
+            e.Handled = true;
+            DestroyGrab();
+            rs.Closed += delegate 
+            {
+                if (rs.DialogResult.HasValue && rs.DialogResult.Value)
+                {
+                    this.DisplayName = rs.Text;
+                }
+            };
+        }
+
 
     }
 }
