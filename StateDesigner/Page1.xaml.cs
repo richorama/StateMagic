@@ -46,6 +46,26 @@ namespace WpfClient
             CreateNewState();
         }
 
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(App.Username))
+            {
+                // you are not a user, create an account
+                CreateAccount accountForm = new CreateAccount();
+                accountForm.Show();
+            }
+            else if (App.ModelId == 0)
+            {
+                // this is a new model
+
+            }
+            else
+            { 
+                // just save it, we're editing
+            
+            }
+        }
+
         private StateControl CreateNewState()
         {
             StateControl sc = new StateControl();
