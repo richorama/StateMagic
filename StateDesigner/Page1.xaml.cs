@@ -52,11 +52,21 @@ namespace WpfClient
             {
                 // you are not a user, create an account
                 CreateAccount accountForm = new CreateAccount();
+
+                accountForm.Closed += delegate
+                {
+                    if (accountForm.DialogResult.HasValue && accountForm.DialogResult.Value)
+                    {
+                        ShowSaveDialog();
+                    }
+                };
                 accountForm.Show();
+
             }
             else if (App.ModelId == 0)
             {
                 // this is a new model
+                ShowSaveDialog();
 
             }
             else
@@ -64,6 +74,17 @@ namespace WpfClient
                 // just save it, we're editing
             
             }
+        }
+
+        public void ShowSaveDialog()
+        { 
+            // TODO
+            
+        }
+
+        public void Save()
+        { 
+            //TODO
         }
 
         private StateControl CreateNewState()

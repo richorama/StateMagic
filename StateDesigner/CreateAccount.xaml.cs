@@ -28,6 +28,7 @@ namespace StateDesigner
         {
             this.DialogResult = false;
         }
+
     }
 }
 
