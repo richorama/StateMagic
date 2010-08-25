@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Common
+namespace StateMagic.Common
 {
-    [Serializable]
+
     public class State
     {
         public int StateID { get; set; }

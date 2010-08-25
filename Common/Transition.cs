@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Common
+namespace StateMagic.Common
 {
-    [Serializable]
+ 
     public class Transition
     {
         public int SourceStateRef { get; set; }

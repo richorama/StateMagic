@@ -5,7 +5,7 @@ using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
 
-namespace Common
+namespace StateMagic.Common
 {
     public static class SerializationWrapper
     {
@@ -53,27 +53,23 @@ namespace Common
             return sw.ToString();
         }
 
-
-
-
-
-        public static object DeserializeString<T>(string value)
+        public static T DeserializeString<T>(string value) where T : class
         {
             if (value == null) return null;
             
             StringReader sr = new StringReader(value);
             XmlSerializer serializer = new XmlSerializer(typeof(T));
-            return serializer.Deserialize(sr);
+            return serializer.Deserialize(sr) as T;
         }
 
 
-        public static T DeserializeFile<T>(string filename)
+        public static T DeserializeFile<T>(string filename) where T : class
         {
             if (filename == null) throw new ArgumentNullException("filename");
 
             XmlSerializer serializer = new XmlSerializer(typeof(T));
             FileStream outputFile = new FileStream(filename, FileMode.Open,FileAccess.Read);
-            T objectModel = (T)serializer.Deserialize(outputFile);
+            T objectModel = serializer.Deserialize(outputFile) as T;
             outputFile.Close();
             return objectModel;
         }

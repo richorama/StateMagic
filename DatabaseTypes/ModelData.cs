@@ -6,9 +6,9 @@ using Castle.ActiveRecord.Attributes;
 using Castle.ActiveRecord.Framework;
 using Castle.ActiveRecord;
 using Castle.ActiveRecord.Framework.Config;
-using Common;
+using StateMagic.Common;
 
-namespace DatabaseTypes
+namespace StateMagic.DatabaseTypes
 {
     [ActiveRecord]
     public class ModelData : ActiveRecordBase<ModelData>
@@ -24,7 +24,7 @@ namespace DatabaseTypes
         {
             get
             {
-                return SerializationWrapper.DeserializeString<StateModel>(this.SerializedStateModel) as StateModel;
+                return SerializationWrapper.DeserializeString<StateModel>(this.SerializedStateModel);
             }
             set
             {

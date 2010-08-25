@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using NUnit.Framework;
 using Castle.ActiveRecord;
-using DataAccess;
+using StateMagic.DataAccess;
 
-namespace InitData
+namespace StateMagic.InitData
 {
     [TestFixture]
     public class CreateDatabaseTables

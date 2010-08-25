@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Common
+namespace StateMagic.Common
 {
-    [Serializable]
+
     public class StateModel
     {
         public int ModelID { get; set; }
@@ -29,7 +29,7 @@ namespace Common
 
         public State GetStateByName(string stateName)
         {
-            return (from state in this.States where string.Compare(stateName, state.Name,true) == 0 select state).First();
+            return (from state in this.States where string.Compare(stateName, state.Name,StringComparison.InvariantCultureIgnoreCase) == 0 select state).First();
         }
 
     }

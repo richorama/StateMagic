@@ -7,9 +7,9 @@ using Castle.ActiveRecord.Framework;
 using Castle.ActiveRecord;
 using Castle.ActiveRecord.Framework.Config;
 using System.Reflection;
-using Common;
+using StateMagic.Common;
 
-namespace DatabaseTypes
+namespace StateMagic.DatabaseTypes
 {
     [ActiveRecord]
     public class CredentialData : ActiveRecordBase<CredentialData>

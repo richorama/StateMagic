@@ -8,9 +8,9 @@ using Castle.ActiveRecord.Framework;
 using Castle.ActiveRecord;
 using Castle.ActiveRecord.Framework.Config;
 using System.Reflection;
-using DatabaseTypes;
+using StateMagic.DatabaseTypes;
 
-namespace DataAccess
+namespace StateMagic.DataAccess
 {
     public static class DatabaseWrapper
     {
