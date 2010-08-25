@@ -28,18 +28,36 @@ namespace StateMagic.Designer
 
         public static int ModelId { get; set; }
 
+        public static Guid APIKey { get; set; }
+
         private void Application_Startup(object sender, StartupEventArgs e)
         {
             this.RootVisual = new Page1();
 
             // read input parameters
-            Username = e.InitParams["username"];
-            string modelString = e.InitParams["modelid"];
-            if (!string.IsNullOrEmpty(modelString))
+            if (e.InitParams.ContainsKey("username"))
             {
-                int modelid = 0;
-                int.TryParse(modelString, out modelid);
-                ModelId = modelid;
+                Username = e.InitParams["username"];
+            }
+
+            if (e.InitParams.ContainsKey("modelid"))
+            {
+                string modelString = e.InitParams["modelid"];
+                if (!string.IsNullOrEmpty(modelString))
+                {
+                    int modelid = 0;
+                    int.TryParse(modelString, out modelid);
+                    ModelId = modelid;
+                }
+            }
+
+            if (e.InitParams.ContainsKey("APIKey"))
+            {
+                string apiKeyString = e.InitParams["APIKey"];
+                if (!string.IsNullOrEmpty(apiKeyString))
+                {
+                    APIKey = new Guid(apiKeyString);
+                }
             }
         }
 

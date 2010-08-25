@@ -65,13 +65,15 @@ namespace StateMagic.Web
         }
 
         [WebMethod]
-        public void SaveModel(string username, Guid apiKey, string password, StateModel model)
+        public void SaveModel(string username, Guid apiKey, StateModel model)
         {
             CredentialData cd = LogIn(username, apiKey);
+            /*
             if (cd.Password != password)
             {
                 throw new System.Security.SecurityException();
             }
+            */
             ModelData md = cd.UpdateModel(model);
             md.Save();
             cd.Save();

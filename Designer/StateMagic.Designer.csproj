@@ -145,6 +145,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
+    <None Include="Service References\ModelService\ModelServices.disco" />
+    <None Include="Service References\ModelService\configuration91.svcinfo" />
+    <None Include="Service References\ModelService\configuration.svcinfo" />
+    <None Include="Service References\ModelService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="ServiceReferences.ClientConfig" />
     <None Include="Service References\ModelService\ModelServices.wsdl" />
     <None Include="Service References\ModelService\StateMagic.Designer.ModelService.GetAllModelsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -155,7 +163,6 @@
     <None Include="Service References\ModelService\StateMagic.Designer.ModelService.SaveModelResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <Content Include="ServiceReferences.ClientConfig" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\OutOfBrowserSettings.xml" />
@@ -180,21 +187,6 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Service References\ModelService\" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ModelService\ModelServices.disco" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ModelService\configuration91.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ModelService\configuration.svcinfo" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Service References\ModelService\Reference.svcmap">
-      <Generator>WCF Proxy Generator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
