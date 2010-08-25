@@ -12,6 +12,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateMagic.Web", "Web\StateMagic.Web.csproj", "{25093E85-E072-4D36-B375-7EC812561A31}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateMagic.Designer", "Designer\StateMagic.Designer.csproj", "{3894555C-2637-4E30-8CA3-371DB184B1ED}"
+	ProjectSection(ProjectDependencies) = postProject
+		{25093E85-E072-4D36-B375-7EC812561A31} = {25093E85-E072-4D36-B375-7EC812561A31}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

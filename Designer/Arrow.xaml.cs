@@ -135,15 +135,12 @@ namespace StateMagic.Designer
             Cap2.Stroke = this.Stroke;
         }
 
-        DeleteButton db;
-
         private void LayoutRoot_MouseEnter(object sender, MouseEventArgs e)
         {
             //db = new DeleteButton();
             //this.LayoutRoot.Children.Add(db);        
             
         }
-            
 
         private void LayoutRoot_MouseLeave(object sender, MouseEventArgs e)
         {

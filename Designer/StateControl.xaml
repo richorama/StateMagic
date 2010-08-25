@@ -8,7 +8,7 @@
     <Grid>
         <Rectangle Name="transparentRectangle" Stroke="Transparent" Fill="Transparent" Height="48" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="48"></Rectangle>
         <Ellipse Name="ellipse0" Stroke="Transparent" Fill="Transparent"></Ellipse>
-        <Image Height="32" HorizontalAlignment="Left" Margin="113,100,0,0" Name="image1" Stretch="None" VerticalAlignment="Top" Width="25" Source="/StateDesigner;component/Arrow.png" />
+        <Image Height="32" HorizontalAlignment="Left" Margin="113,100,0,0" Name="image1" Stretch="None" VerticalAlignment="Top" Width="25" Source="/StateMagic.Designer;component/Arrow.png" />
         <Ellipse Name="ellipse1" Stroke="#FF6FC4D8" StrokeThickness="3" Margin="25">
             <Ellipse.Fill>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">

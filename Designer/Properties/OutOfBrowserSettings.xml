@@ -1,7 +1,7 @@
-<OutOfBrowserSettings ShortName="StateDesigner Application" EnableGPUAcceleration="False" ShowInstallMenuItem="True">
-  <OutOfBrowserSettings.Blurb>StateDesigner Application on your desktop; at home, at work or on the go.</OutOfBrowserSettings.Blurb>
+<OutOfBrowserSettings ShortName="StateMagic Designer" EnableGPUAcceleration="True" ShowInstallMenuItem="True">
+  <OutOfBrowserSettings.Blurb>StateMagic Designer on your desktop; at home, at work or on the go.</OutOfBrowserSettings.Blurb>
   <OutOfBrowserSettings.WindowSettings>
-    <WindowSettings Title="StateDesigner Application" />
+    <WindowSettings Title="StateMagic Designer" />
   </OutOfBrowserSettings.WindowSettings>
   <OutOfBrowserSettings.Icons />
 </OutOfBrowserSettings>

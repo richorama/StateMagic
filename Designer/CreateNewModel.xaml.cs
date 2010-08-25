@@ -19,6 +19,15 @@ namespace StateMagic.Designer
             InitializeComponent();
         }
 
+        public string ModelName
+        {
+            get 
+            {
+                return this.textBox1.Text;
+            }
+        }
+
+
         private void OKButton_Click(object sender, RoutedEventArgs e)
         {
 

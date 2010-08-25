@@ -25,7 +25,9 @@ namespace StateMagic.Designer
         public Color LightBlue = new Color() { A = 255, R = 173, G = 216, B = 230 };
 
         //private GrabControl grabControl = null;
-        
+
+        public int StateId { get; set; }
+
         public StateControl()
         {
             InitializeComponent();

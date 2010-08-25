@@ -10,7 +10,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
+using StateMagic.Common;
 
 namespace StateMagic.Designer
 {
@@ -72,19 +72,23 @@ namespace StateMagic.Designer
             else
             { 
                 // just save it, we're editing
+                SaveModel();
             
             }
         }
 
         public void ShowSaveDialog()
         { 
-            // TODO
-            
-        }
-
-        public void Save()
-        { 
-            //TODO
+            CreateNewModel dialog = new CreateNewModel();
+            dialog.Show();
+            dialog.Closed += delegate
+            {
+                if (dialog.DialogResult.HasValue && dialog.DialogResult.Value)
+                {
+                    this.ModelName = dialog.ModelName;
+                    SaveModel();
+                }
+            };
         }
 
         private StateControl CreateNewState()
@@ -380,8 +384,12 @@ namespace StateMagic.Designer
         }
 
 
+
+        public string ModelName { get; set; }
+
         public void SaveModel()
-        { 
+        {
+            StateModel sm = ModelConverter.ToCommon(this.stateControls, App.ModelId, this.ModelName);
             
         
         }
