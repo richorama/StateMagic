@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="eac4ccd8-d980-4e36-81ad-9d4f493484e8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7361575f-981a-4150-b65c-53aeb70eb696" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>true</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -9,7 +9,7 @@
     <GenerateMessageContracts>false</GenerateMessageContracts>
     <NamespaceMappings />
     <CollectionMappings>
-      <CollectionMapping TypeName="System.Collections.ObjectModel.ObservableCollection`1" Category="List" />
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
     </CollectionMappings>
     <GenerateSerializableTypes>false</GenerateSerializableTypes>
     <Serializer>Auto</Serializer>
@@ -23,8 +23,8 @@
     <MetadataSource Address="http://localhost:53824/ModelServices.asmx" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="ModelServices.wsdl" MetadataType="Wsdl" ID="d70fc563-2cd6-4349-bd93-d0fbabe6a494" SourceId="1" SourceUrl="http://localhost:53824/ModelServices.asmx?wsdl" />
-    <MetadataFile FileName="ModelServices.disco" MetadataType="Disco" ID="0c608c00-aa6f-4f25-af33-b9cfb3355aaf" SourceId="1" SourceUrl="http://localhost:53824/ModelServices.asmx?disco" />
+    <MetadataFile FileName="ModelServices.wsdl" MetadataType="Wsdl" ID="2a3c8c93-a738-45ba-b475-d52b9423be07" SourceId="1" SourceUrl="http://localhost:53824/ModelServices.asmx?wsdl" />
+    <MetadataFile FileName="ModelServices.disco" MetadataType="Disco" ID="58208a81-dba3-4fd4-b637-f0e539c7432f" SourceId="1" SourceUrl="http://localhost:53824/ModelServices.asmx?disco" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

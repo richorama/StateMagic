@@ -11,7 +11,7 @@
         <client>
             <endpoint address="http://localhost:53824/ModelServices.asmx"
                 binding="basicHttpBinding" bindingConfiguration="ModelServicesSoap"
-                contract="ModelService.ModelServicesSoap" name="ModelServicesSoap" />
+                contract="ModelServices.ModelServicesSoap" name="ModelServicesSoap" />
         </client>
     </system.serviceModel>
 </configuration>

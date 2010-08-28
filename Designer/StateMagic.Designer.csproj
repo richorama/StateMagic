@@ -93,9 +93,6 @@
     </Compile>
     <Compile Include="IDeleteable.cs" />
     <Compile Include="IJoinable.cs" />
-    <Compile Include="..\Common\State.cs" />
-    <Compile Include="..\Common\StateModel.cs" />
-    <Compile Include="..\Common\Transition.cs" />
     <Compile Include="ModelConverter.cs" />
     <Compile Include="Page1.xaml.cs">
       <DependentUpon>Page1.xaml</DependentUpon>
@@ -104,7 +101,7 @@
     <Compile Include="RenameState.xaml.cs">
       <DependentUpon>RenameState.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Service References\ModelService\Reference.cs">
+    <Compile Include="Service References\ModelServices\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -145,22 +142,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\AppManifest.xml" />
-    <None Include="Service References\ModelService\ModelServices.disco" />
-    <None Include="Service References\ModelService\configuration91.svcinfo" />
-    <None Include="Service References\ModelService\configuration.svcinfo" />
-    <None Include="Service References\ModelService\Reference.svcmap">
+    <None Include="Service References\ModelServices\ModelServices.disco" />
+    <None Include="Service References\ModelServices\configuration91.svcinfo" />
+    <None Include="Service References\ModelServices\configuration.svcinfo" />
+    <None Include="Service References\ModelServices\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="ServiceReferences.ClientConfig" />
-    <None Include="Service References\ModelService\ModelServices.wsdl" />
-    <None Include="Service References\ModelService\StateMagic.Designer.ModelService.GetAllModelsResponse.datasource">
+    <None Include="Service References\ModelServices\ModelServices.wsdl" />
+    <None Include="Service References\ModelServices\StateMagic.Designer.ModelServices.GetAllModelsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ModelService\StateMagic.Designer.ModelService.GetModelResponse.datasource">
+    <None Include="Service References\ModelServices\StateMagic.Designer.ModelServices.GetModelResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Service References\ModelService\StateMagic.Designer.ModelService.SaveModelResponse.datasource">
+    <None Include="Service References\ModelServices\StateMagic.Designer.ModelServices.SaveModelResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
   </ItemGroup>
@@ -186,7 +183,7 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Service References\ModelService\" />
+    <WCFMetadataStorage Include="Service References\ModelServices\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

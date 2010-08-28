@@ -1,1 +1,1 @@
-﻿<%@ WebService Language="C#" CodeBehind="ModelServices.asmx.cs" Class="WebApplication.ModelServices" %>
+﻿<%@ WebService Language="C#" CodeBehind="ModelServices.asmx.cs" Class="StateMagic.Web.ModelServices" %>
