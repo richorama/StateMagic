@@ -391,12 +391,8 @@ namespace StateMagic.Designer
         public void SaveModel()
         {
             StateModel sm = ModelConverter.ToCommon(this.stateControls, App.ModelId, this.ModelName);
-            
             var client = new ModelServices.ModelServicesSoapClient();
             client.SaveModelAsync(App.Username, App.APIKey, sm);
-                       
-         
-        
         }
         
     }

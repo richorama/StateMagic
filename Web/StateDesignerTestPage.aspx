@@ -66,7 +66,7 @@
 		  <param name="minRuntimeVersion" value="3.0.40818.0" />
 		  <param name="autoUpgrade" value="true" />
           <param name="windowless" value="true" />
-          <param name="initParams" value="username=USER_NAME,modelid=123"/>
+          <param name="initParams" value=""/>
 		  <a href="http://go.microsoft.com/fwlink/?LinkID=149156&v=3.0.40818.0" style="text-decoration:none">
  			  <img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style:none"/>
 		  </a>
