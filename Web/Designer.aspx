@@ -67,7 +67,6 @@
 		  <param name="autoUpgrade" value="true" />
           <param name="windowless" value="true" />
           <asp:PlaceHolder runat="server" id="initParams"></asp:PlaceHolder>
-          <param name="initParams" value="" runat="server"/>
 		  <a href="http://go.microsoft.com/fwlink/?LinkID=149156&v=3.0.40818.0" style="text-decoration:none">
  			  <img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style:none"/>
 		  </a>

@@ -31,16 +31,20 @@ namespace StateMagic.Web
                     // TODO: save the apikey to the database
                 }
                 AddParam("apikey", Session["ApiKey"] as string);
-
             }
 
-            this.initParams.Controls.Add(new LiteralControl(string.Format(@"<param name=""windowless"" value=""{0}"" />", string.Join(",", paramsList.ToArray()))));
+            if (null != Request["ModelId"])
+            {
+                AddParam("modelid", Request["ModelId"]);
+            }
+
+            this.initParams.Controls.Add(new LiteralControl(string.Format(@"<param name=""initParams"" value=""{0}"" />", string.Join(",", paramsList.ToArray()))));
         }
 
         private void AddParam(string name, string value)
         {
             if (string.IsNullOrEmpty(name)) throw new ArgumentNullException("name");
-            if (string.IsNullOrEmpty(name)) throw new ArgumentNullException("value");
+            if (string.IsNullOrEmpty(value)) throw new ArgumentNullException("value");
 
             paramsList.Add(string.Format("{0}={1}", name, value));
         }

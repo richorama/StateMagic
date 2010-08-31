@@ -3,8 +3,10 @@
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
     <ul>
     <asp:Repeater runat="server" ID="AvailableModels">
-    <ItemTemplate><%#(Container.DataItem as DatabaseTypes.ModelData).ModelName%></ItemTemplate>
+    <ItemTemplate><a href="Designer.aspx?ModelId=<%#(Container.DataItem as StateMagic.DatabaseTypes.ModelData).ModelDataID%>"><%#(Container.DataItem as StateMagic.DatabaseTypes.ModelData).ModelName%></a></ItemTemplate>
     </asp:Repeater>
+    <li><a href="Designer.aspx">Create a new diagram</a>
+    </li>
     </ul>
     <br />
     Account Balance: <asp:Label runat="server" ID="AccountBalanceLabel"></asp:Label> transactions remaining.
