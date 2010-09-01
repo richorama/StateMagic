@@ -14,5 +14,9 @@ namespace StateMagic.Common
 
         public bool Default { get; set; }
 
+        public int X { get; set; }
+
+        public int Y { get; set; }
+
     }
 }

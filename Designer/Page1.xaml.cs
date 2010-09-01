@@ -36,6 +36,28 @@ namespace StateMagic.Designer
             StateControl sc = CreateNewState();
             sc.StartState = true;
             SetPosition(sc, new Point(0, 150));
+
+            if (App.ModelId != 0 && !string.IsNullOrEmpty(App.Username) )
+            {
+                ModelServices.ModelServicesSoapClient client = new ModelServicesSoapClient();
+                client.GetModelCompleted += new EventHandler<GetModelCompletedEventArgs>(client_GetModelCompleted);
+                client.GetModelAsync(App.Username, App.APIKey, App.ModelId, SystemKey);
+            }
+
+        }
+
+        void client_GetModelCompleted(object sender, GetModelCompletedEventArgs e)
+        {
+
+            throw new NotImplementedException();
+
+            var stateModel = e.Result;
+            var states = ModelConverter.FromCommon(stateModel);
+            foreach (var state in states)
+            { 
+                //////// we must record the XY pos of each state!!    
+            }
+
         }
 
         private int stateIndex = 1;
@@ -146,7 +168,7 @@ namespace StateMagic.Designer
             Canvas.SetTop(control, position.Y);
         }
 
-        public Point GetPosition(Control control)
+        public static Point GetPosition(Control control)
         {
             return new Point((int)Canvas.GetLeft(control), (int)Canvas.GetTop(control));
         }

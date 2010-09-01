@@ -65,6 +65,8 @@
           <s:element minOccurs="1" maxOccurs="1" name="StateID" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="Default" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="X" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Y" type="s:int" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ArrayOfTransition">

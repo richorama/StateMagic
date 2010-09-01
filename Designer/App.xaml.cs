@@ -59,6 +59,7 @@ namespace StateMagic.Designer
                     APIKey = new Guid(apiKeyString);
                 }
             }
+
         }
 
         private void Application_Exit(object sender, EventArgs e)

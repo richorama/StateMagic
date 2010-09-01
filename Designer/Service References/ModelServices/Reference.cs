@@ -146,6 +146,10 @@ namespace StateMagic.Designer.ModelServices {
         
         private bool DefaultField;
         
+        private int XField;
+        
+        private int YField;
+        
         [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true)]
         public int StateID {
             get {
@@ -181,6 +185,32 @@ namespace StateMagic.Designer.ModelServices {
                 if ((this.DefaultField.Equals(value) != true)) {
                     this.DefaultField = value;
                     this.RaisePropertyChanged("Default");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=3)]
+        public int X {
+            get {
+                return this.XField;
+            }
+            set {
+                if ((this.XField.Equals(value) != true)) {
+                    this.XField = value;
+                    this.RaisePropertyChanged("X");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute(IsRequired=true, Order=4)]
+        public int Y {
+            get {
+                return this.YField;
+            }
+            set {
+                if ((this.YField.Equals(value) != true)) {
+                    this.YField = value;
+                    this.RaisePropertyChanged("Y");
                 }
             }
         }

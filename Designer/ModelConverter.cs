@@ -29,6 +29,9 @@ namespace StateMagic.Designer
                 state.Default = control.StartState;
                 state.Name = control.DisplayName;
                 state.StateID = i;
+                Point position = Page1.GetPosition(control);
+                state.X = (int) position.X;
+                state.Y = (int) position.Y;
                 control.StateId = i;
                 i++;
                 sm.States.Add(state);
