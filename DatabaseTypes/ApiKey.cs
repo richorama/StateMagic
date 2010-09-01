@@ -19,7 +19,7 @@ namespace StateMagic.DatabaseTypes
         public int ApiKeyID { get; set; }
 
         [Property]
-        public Guid ApiKey { get; set; }
+        public Guid Key { get; set; }
 
         [Property]
         public DateTime DateCreated { get; set; }

@@ -392,8 +392,10 @@ namespace StateMagic.Designer
         {
             StateModel sm = ModelConverter.ToCommon(this.stateControls, App.ModelId, this.ModelName);
             var client = new ModelServices.ModelServicesSoapClient();
-            client.SaveModelAsync(App.Username, App.APIKey, sm);
+            client.SaveModelAsync(App.Username, App.APIKey, sm, SystemKey);
         }
-        
+
+
+        public static readonly Guid SystemKey = new Guid("3FB3447D-5707-4525-91DF-8FE7B2396088");
     }
 }

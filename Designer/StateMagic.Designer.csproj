@@ -152,10 +152,16 @@
     </None>
     <Content Include="ServiceReferences.ClientConfig" />
     <None Include="Service References\ModelServices\ModelServices.wsdl" />
+    <None Include="Service References\ModelServices\StateMagic.Designer.ModelServices.CreateAccountResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Service References\ModelServices\StateMagic.Designer.ModelServices.GetAllModelsResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ModelServices\StateMagic.Designer.ModelServices.GetModelResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ModelServices\StateMagic.Designer.ModelServices.LogInResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Service References\ModelServices\StateMagic.Designer.ModelServices.SaveModelResponse.datasource">

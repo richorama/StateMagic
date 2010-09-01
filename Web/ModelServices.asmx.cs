@@ -19,6 +19,9 @@ namespace StateMagic.Web
     [System.ComponentModel.ToolboxItem(false)]
     public class ModelServices : System.Web.Services.WebService
     {
+
+        public static readonly Guid SystemKey = new Guid("3FB3447D-5707-4525-91DF-8FE7B2396088");
+
         internal static CredentialData LogIn(string username, Guid apiKey)
         {
             try
@@ -45,15 +48,17 @@ namespace StateMagic.Web
         }
 
         [WebMethod]
-        public List<ModelSummary> GetAllModels(string username, Guid apiKey)
+        public List<ModelSummary> GetAllModels(string username, Guid apiKey, Guid systemKey)
         {
+            CheckSystemKey(systemKey);
             CredentialData cd = LogIn(username, apiKey);
             return (from md in cd.Models select md.CreateModelSummary()).ToList();
         }
 
         [WebMethod]
-        public StateModel GetModel(string username, Guid apiKey, int modelId)
+        public StateModel GetModel(string username, Guid apiKey, int modelId, Guid systemKey)
         {
+            CheckSystemKey(systemKey);
             CredentialData cd = LogIn(username, apiKey);
             StateModel sm = (from md in cd.Models where md.ModelDataID == modelId select md.DeserializedStateModel).First();
             if (null == sm)
@@ -63,10 +68,11 @@ namespace StateMagic.Web
             sm.ModelID = modelId;
             return sm;
         }
-
+        
         [WebMethod]
-        public int SaveModel(string username, Guid apiKey, StateModel model)
+        public int SaveModel(string username, Guid apiKey, StateModel model, Guid systemKey)
         {
+            CheckSystemKey(systemKey);
             CredentialData cd = LogIn(username, apiKey);
             ModelData md = cd.UpdateModel(model);
             md.Save();
@@ -75,15 +81,18 @@ namespace StateMagic.Web
         }
 
         [WebMethod]
-        public CredentialData CreateAccount(string username, Guid apiKey, string password)
+        public bool CreateAccount(string username, Guid apiKey, string password, Guid systemKey)
         {
+            CheckSystemKey(systemKey);
+            CheckApiKey(apiKey);
+
             var errorMessages = new List<string>();
             DataAccess.DatabaseWrapper.Init();
 
             CredentialData[] matches = CredentialData.FindAllByProperty("Username", username);
             if (matches.Length > 0)
             {
-                return null;
+                return false;
             }
 
             // success - create an account
@@ -95,14 +104,36 @@ namespace StateMagic.Web
             cd.ApiKey = apiKey;
             cd.TransactionBalance = 1000; // this is the starting balance.
             cd.Save();
-            return cd;
+            return true;
         }
 
         [WebMethod]
-        public CredentialData LogIn(string username, string password, Guid apiKey)
+        public Guid LogIn(string username, string password, Guid apiKey, Guid systemKey)
         {
-            throw new NotImplementedException();
+            CheckSystemKey(systemKey);
+            CheckApiKey(apiKey);
+
+            var credentialData = WebServices.LogIn(username, password);
+            return credentialData.ApiKey;
         }
+
+        internal static void CheckApiKey(Guid apiKey)
+        {
+            var key = (from a in ApiKey.Queryable where a.Key == apiKey select a).FirstOrDefault();
+            if (null == key && key.DateCreated > DateTime.Now.AddDays(-1))
+            {
+                throw new System.Security.SecurityException("Invalid API Key");
+            }
+        }
+
+        internal static void CheckSystemKey(Guid value)
+        {
+            if (value != SystemKey)
+            {
+                throw new System.Security.SecurityException("Invalid system key");
+            }
+        }
+
    
     }
 }

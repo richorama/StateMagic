@@ -46,7 +46,7 @@ namespace StateMagic.Web
             */
 
             ModelServices ms = new ModelServices();
-            var cd = ms.CreateAccount(EmailAddress.Text, Guid.NewGuid(), Password1.Text);
+            var cd = ms.CreateAccount(EmailAddress.Text, Guid.NewGuid(), Password1.Text, ModelServices.SystemKey);
    
             if (cd == null)
             {

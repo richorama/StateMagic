@@ -29,7 +29,7 @@ namespace StateMagic.Web
                 {
                     Guid key = Guid.NewGuid();
                     ApiKey apiKey = new ApiKey();
-                    apiKey.ApiKey = key;
+                    apiKey.Key = key;
                     apiKey.DateCreated = DateTime.Now;
                     apiKey.Save();
                     Session["ApiKey"] = key.ToString();

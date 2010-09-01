@@ -8,6 +8,7 @@
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="apiKey" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="systemKey" type="s1:guid" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -35,6 +36,7 @@
             <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="apiKey" type="s1:guid" />
             <s:element minOccurs="1" maxOccurs="1" name="modelId" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="systemKey" type="s1:guid" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -82,11 +84,50 @@
             <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
             <s:element minOccurs="1" maxOccurs="1" name="apiKey" type="s1:guid" />
             <s:element minOccurs="0" maxOccurs="1" name="model" type="tns:StateModel" />
+            <s:element minOccurs="1" maxOccurs="1" name="systemKey" type="s1:guid" />
           </s:sequence>
         </s:complexType>
       </s:element>
       <s:element name="SaveModelResponse">
-        <s:complexType />
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SaveModelResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateAccount">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="apiKey" type="s1:guid" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="systemKey" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateAccountResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CreateAccountResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogIn">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="username" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="password" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="apiKey" type="s1:guid" />
+            <s:element minOccurs="1" maxOccurs="1" name="systemKey" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LogInResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="LogInResult" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
       </s:element>
     </s:schema>
     <s:schema elementFormDefault="qualified" targetNamespace="http://microsoft.com/wsdl/types/">
@@ -115,6 +156,18 @@
   <wsdl:message name="SaveModelSoapOut">
     <wsdl:part name="parameters" element="tns:SaveModelResponse" />
   </wsdl:message>
+  <wsdl:message name="CreateAccountSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateAccount" />
+  </wsdl:message>
+  <wsdl:message name="CreateAccountSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateAccountResponse" />
+  </wsdl:message>
+  <wsdl:message name="LogInSoapIn">
+    <wsdl:part name="parameters" element="tns:LogIn" />
+  </wsdl:message>
+  <wsdl:message name="LogInSoapOut">
+    <wsdl:part name="parameters" element="tns:LogInResponse" />
+  </wsdl:message>
   <wsdl:portType name="ModelServicesSoap">
     <wsdl:operation name="GetAllModels">
       <wsdl:input message="tns:GetAllModelsSoapIn" />
@@ -127,6 +180,14 @@
     <wsdl:operation name="SaveModel">
       <wsdl:input message="tns:SaveModelSoapIn" />
       <wsdl:output message="tns:SaveModelSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAccount">
+      <wsdl:input message="tns:CreateAccountSoapIn" />
+      <wsdl:output message="tns:CreateAccountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LogIn">
+      <wsdl:input message="tns:LogInSoapIn" />
+      <wsdl:output message="tns:LogInSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="ModelServicesSoap" type="tns:ModelServicesSoap">
@@ -158,6 +219,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="CreateAccount">
+      <soap:operation soapAction="http://v1.model.services.statemagic.com/CreateAccount" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogIn">
+      <soap:operation soapAction="http://v1.model.services.statemagic.com/LogIn" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="ModelServicesSoap12" type="tns:ModelServicesSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -181,6 +260,24 @@
     </wsdl:operation>
     <wsdl:operation name="SaveModel">
       <soap12:operation soapAction="http://v1.model.services.statemagic.com/SaveModel" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAccount">
+      <soap12:operation soapAction="http://v1.model.services.statemagic.com/CreateAccount" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LogIn">
+      <soap12:operation soapAction="http://v1.model.services.statemagic.com/LogIn" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
