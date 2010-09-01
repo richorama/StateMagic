@@ -65,18 +65,43 @@ namespace StateMagic.Web
         }
 
         [WebMethod]
-        public void SaveModel(string username, Guid apiKey, StateModel model)
+        public int SaveModel(string username, Guid apiKey, StateModel model)
         {
             CredentialData cd = LogIn(username, apiKey);
-            /*
-            if (cd.Password != password)
-            {
-                throw new System.Security.SecurityException();
-            }
-            */
             ModelData md = cd.UpdateModel(model);
             md.Save();
             cd.Save();
+            return md.ModelDataID;
+        }
+
+        [WebMethod]
+        public CredentialData CreateAccount(string username, Guid apiKey, string password)
+        {
+            var errorMessages = new List<string>();
+            DataAccess.DatabaseWrapper.Init();
+
+            CredentialData[] matches = CredentialData.FindAllByProperty("Username", username);
+            if (matches.Length > 0)
+            {
+                return null;
+            }
+
+            // success - create an account
+            CredentialData cd = new CredentialData();
+            cd.Username = username;
+            cd.Password = password;
+            cd.Authentications = 0;
+            cd.LastAuthentication = DateTime.Now;
+            cd.ApiKey = apiKey;
+            cd.TransactionBalance = 1000; // this is the starting balance.
+            cd.Save();
+            return cd;
+        }
+
+        [WebMethod]
+        public CredentialData LogIn(string username, string password, Guid apiKey)
+        {
+            throw new NotImplementedException();
         }
    
     }

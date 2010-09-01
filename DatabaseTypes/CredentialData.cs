@@ -8,11 +8,12 @@ using Castle.ActiveRecord;
 using Castle.ActiveRecord.Framework.Config;
 using System.Reflection;
 using StateMagic.Common;
+using Castle.ActiveRecord.Linq;
 
 namespace StateMagic.DatabaseTypes
 {
     [ActiveRecord]
-    public class CredentialData : ActiveRecordBase<CredentialData>
+    public class CredentialData : ActiveRecordLinqBase<CredentialData>
     {
         [PrimaryKey]
         public int CredentialDataID { get; set; }

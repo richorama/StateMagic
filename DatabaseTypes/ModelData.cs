@@ -7,11 +7,12 @@ using Castle.ActiveRecord.Framework;
 using Castle.ActiveRecord;
 using Castle.ActiveRecord.Framework.Config;
 using StateMagic.Common;
+using Castle.ActiveRecord.Linq;
 
 namespace StateMagic.DatabaseTypes
 {
     [ActiveRecord]
-    public class ModelData : ActiveRecordBase<ModelData>
+    public class ModelData : ActiveRecordLinqBase<ModelData>
     {
         [PrimaryKey]
         public int ModelDataID { get; set; }

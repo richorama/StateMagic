@@ -27,7 +27,12 @@ namespace StateMagic.Web
             {
                 if (null == Session["ApiKey"] as string)
                 {
-                    Session["ApiKey"] = Guid.NewGuid().ToString();
+                    Guid key = Guid.NewGuid();
+                    ApiKey apiKey = new ApiKey();
+                    apiKey.ApiKey = key;
+                    apiKey.DateCreated = DateTime.Now;
+                    apiKey.Save();
+                    Session["ApiKey"] = key.ToString();
                     // TODO: save the apikey to the database
                 }
                 AddParam("apikey", Session["ApiKey"] as string);

@@ -18,11 +18,6 @@ namespace StateMagic.DataAccess
 
         static object sync = new object();
 
-        static DatabaseWrapper()
-        {
-            Init();
-        }
-
         public static void Init()
         {
             lock (sync)

@@ -45,24 +45,14 @@ namespace StateMagic.Web
             }
             */
 
-            DataAccess.DatabaseWrapper.Init();
-
-            CredentialData[] matches = CredentialData.FindAllByProperty("Username", EmailAddress.Text);
-            if (matches.Length > 0)
+            ModelServices ms = new ModelServices();
+            var cd = ms.CreateAccount(EmailAddress.Text, Guid.NewGuid(), Password1.Text);
+   
+            if (cd == null)
             {
-                ErrorMessages.Text = "Email address already registered";
-                return; 
+                this.ErrorMessages.Text = "Email address already registered";
+                return;
             }
-
-            // success - create an account
-            CredentialData cd = new CredentialData();
-            cd.Username = EmailAddress.Text;
-            cd.Password = Password1.Text;
-            cd.Authentications = 0;
-            cd.LastAuthentication = DateTime.Now;
-            cd.ApiKey = Guid.NewGuid();
-            cd.TransactionBalance = 1000; // this is the starting balance.
-            cd.Save();
 
             Session["Credentials"] = cd;
 
