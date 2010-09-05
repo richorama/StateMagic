@@ -27,6 +27,7 @@ namespace StateMagic.Web
             {
                 if (null == Session["ApiKey"] as string)
                 {
+                    DatabaseWrapper.Init();
                     Guid key = Guid.NewGuid();
                     ApiKey apiKey = new ApiKey();
                     apiKey.Key = key;

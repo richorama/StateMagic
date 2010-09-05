@@ -43,7 +43,7 @@ namespace StateMagic.DataAccess
 
 
                 if (!ActiveRecordStarter.IsInitialized)
-                    ActiveRecordStarter.Initialize(config, typeof(CredentialData), typeof(ModelData));
+                    ActiveRecordStarter.Initialize(config, typeof(CredentialData), typeof(ModelData), typeof(ApiKey));
 
                 initialized = true;
             }

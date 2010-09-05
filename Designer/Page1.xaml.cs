@@ -46,18 +46,26 @@ namespace StateMagic.Designer
 
         }
 
+        private void CreateState(StateControl sc, Point position)
+        {
+            sc.MouseLeftButtonDown += new MouseButtonEventHandler(sc_MouseDown);
+            sc.MouseLeftButtonUp += new MouseButtonEventHandler(sc_MouseUp);
+            sc.MouseMove += new MouseEventHandler(sc_MouseMove);
+            sc.GrabControlGrabbed += new ControlGrabbedHandler(this.OnGrabControlGrabbed);
+            sc.StateDeleted += new StateDeletedHandler(this.DeleteEvent);
+
+            this.AddControl(sc);
+            this.SetPosition(sc, position);
+        }
+
         void client_GetModelCompleted(object sender, GetModelCompletedEventArgs e)
         {
-
-            throw new NotImplementedException();
-
             var stateModel = e.Result;
             var states = ModelConverter.FromCommon(stateModel);
             foreach (var state in states)
-            { 
-                //////// we must record the XY pos of each state!!    
+            {
+                CreateState(state, state.InitialPosition);
             }
-
         }
 
         private int stateIndex = 1;
@@ -113,6 +121,9 @@ namespace StateMagic.Designer
             dialog.Show();
 
         }
+
+
+
 
         private StateControl CreateNewState()
         {

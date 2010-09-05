@@ -58,6 +58,7 @@ namespace StateMagic.Designer
             foreach (var state in stateModel.States)
             {
                 var stateControl = new StateControl();
+                stateControl.InitialPosition = new Point(state.X, state.Y);
                 stateControl.DisplayName = state.Name;
                 stateControl.StateId = state.StateID;
                 stateControl.StartState = state.Default;

@@ -272,6 +272,8 @@ namespace StateMagic.Designer
             };
         }
 
+        public Point InitialPosition { get; set; }
+
 
     }
 }
