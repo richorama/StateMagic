@@ -30,7 +30,7 @@ namespace StateMagic.Web
                     DatabaseWrapper.Init();
                     Guid key = Guid.NewGuid();
                     ApiKey apiKey = new ApiKey();
-                    apiKey.Key = key;
+                    apiKey.APIKey = key;
                     apiKey.DateCreated = DateTime.Now;
                     apiKey.Save();
                     Session["ApiKey"] = key.ToString();

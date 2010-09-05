@@ -51,7 +51,7 @@ namespace StateMagic.Designer
                 }
             }
 
-            if (e.InitParams.ContainsKey("APIKey"))
+            if (e.InitParams.ContainsKey("apikey"))
             {
                 string apiKeyString = e.InitParams["APIKey"];
                 if (!string.IsNullOrEmpty(apiKeyString))

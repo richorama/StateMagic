@@ -86,13 +86,18 @@ namespace StateMagic.Web
             CheckSystemKey(systemKey);
             CheckApiKey(apiKey);
 
+            return CreateAccount(username, apiKey, password) != null;
+        }
+
+        public static CredentialData CreateAccount(string username, Guid newApiKey, string password)
+        {
             var errorMessages = new List<string>();
             DataAccess.DatabaseWrapper.Init();
 
             CredentialData[] matches = CredentialData.FindAllByProperty("Username", username);
             if (matches.Length > 0)
             {
-                return false;
+                return null;
             }
 
             // success - create an account
@@ -101,10 +106,10 @@ namespace StateMagic.Web
             cd.Password = password;
             cd.Authentications = 0;
             cd.LastAuthentication = DateTime.Now;
-            cd.ApiKey = apiKey;
+            cd.ApiKey = newApiKey;
             cd.TransactionBalance = 1000; // this is the starting balance.
             cd.Save();
-            return true;
+            return cd;
         }
 
         [WebMethod]
@@ -119,8 +124,10 @@ namespace StateMagic.Web
 
         internal static void CheckApiKey(Guid apiKey)
         {
-            var key = (from a in ApiKey.Queryable where a.Key == apiKey select a).FirstOrDefault();
-            if (null == key && key.DateCreated > DateTime.Now.AddDays(-1))
+            DatabaseWrapper.Init();
+            
+            var key = ApiKey.FindFirst(Restrictions.Eq("APIKey", apiKey));
+            if (null == key || key.DateCreated > DateTime.Now.AddDays(-1))
             {
                 throw new System.Security.SecurityException("Invalid API Key");
             }

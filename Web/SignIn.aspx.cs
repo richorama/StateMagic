@@ -45,10 +45,9 @@ namespace StateMagic.Web
             }
             */
 
-            ModelServices ms = new ModelServices();
-            var cd = ms.CreateAccount(EmailAddress.Text, Guid.NewGuid(), Password1.Text, ModelServices.SystemKey);
+            var cd = ModelServices.CreateAccount(EmailAddress.Text, Guid.NewGuid(), Password1.Text);
    
-            if (!cd)
+            if (cd == null)
             {
                 this.ErrorMessages.Text = "Email address already registered";
                 return;
