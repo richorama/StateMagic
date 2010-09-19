@@ -32,7 +32,6 @@ namespace StateMagic.Designer
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {
-            this.RootVisual = new Page1();
 
             // read input parameters
             if (e.InitParams.ContainsKey("username"))
@@ -53,12 +52,13 @@ namespace StateMagic.Designer
 
             if (e.InitParams.ContainsKey("apikey"))
             {
-                string apiKeyString = e.InitParams["APIKey"];
+                string apiKeyString = e.InitParams["apikey"];
                 if (!string.IsNullOrEmpty(apiKeyString))
                 {
                     APIKey = new Guid(apiKeyString);
                 }
             }
+            this.RootVisual = new Page1();
 
         }
 

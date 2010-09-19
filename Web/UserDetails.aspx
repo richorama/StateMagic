@@ -1,9 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserDetails.aspx.cs" Inherits="StateMagic.Web.UserDetails" MasterPageFile="~/Site1.Master" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserDetails.aspx.cs" Inherits="StateMagic.Web.UserDetails" MasterPageFile="~/Master.Master" %>
 
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
     <ul>
     <asp:Repeater runat="server" ID="AvailableModels">
-    <ItemTemplate><a href="Designer.aspx?ModelId=<%#(Container.DataItem as StateMagic.DatabaseTypes.ModelData).ModelDataID%>"><%#(Container.DataItem as StateMagic.DatabaseTypes.ModelData).ModelName%></a></ItemTemplate>
+    <ItemTemplate><li><a href="Designer.aspx?ModelId=<%#(Container.DataItem as StateMagic.DatabaseTypes.ModelData).ModelDataID%>"><%#(Container.DataItem as StateMagic.DatabaseTypes.ModelData).ModelName%></a></li></ItemTemplate>
     </asp:Repeater>
     <li><a href="Designer.aspx">Create a new diagram</a>
     </li>

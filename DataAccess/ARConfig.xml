@@ -20,7 +20,7 @@
     
     <add
       key="connection.connection_string"
-      value="Data Source=.\SQLExpress;Initial Catalog=SM;User Id=caremanager;Password=01440782222;" />
+      value="Data Source=.\SQLExpress;Initial Catalog=SM;integrated security=true" />
   </config>
 
 </activerecord>

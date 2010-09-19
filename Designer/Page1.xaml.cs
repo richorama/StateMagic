@@ -33,15 +33,19 @@ namespace StateMagic.Designer
             Page1.Instance = this;
             this.MouseMove += new MouseEventHandler(sc_MouseMove);
             
-            StateControl sc = CreateNewState();
-            sc.StartState = true;
-            SetPosition(sc, new Point(0, 150));
-
-            if (App.ModelId != 0 && !string.IsNullOrEmpty(App.Username) )
+            if (App.ModelId != 0 && !string.IsNullOrEmpty(App.Username))
             {
+                // load initial state
                 ModelServices.ModelServicesSoapClient client = new ModelServicesSoapClient();
                 client.GetModelCompleted += new EventHandler<GetModelCompletedEventArgs>(client_GetModelCompleted);
                 client.GetModelAsync(App.Username, App.APIKey, App.ModelId, SystemKey);
+            }
+            else
+            {
+                // create initial state
+                StateControl sc = CreateNewState();
+                sc.StartState = true;
+                SetPosition(sc, new Point(0, 150));
             }
 
         }
@@ -65,6 +69,13 @@ namespace StateMagic.Designer
             foreach (var state in states)
             {
                 CreateState(state, state.InitialPosition);
+            }
+            foreach (var state in states)
+            {
+                foreach (var arrow in state.ArrowsOut)
+                {
+                    AddArrow(arrow.HeadControl, arrow.TailControl);
+                }
             }
         }
 
@@ -425,6 +436,11 @@ namespace StateMagic.Designer
         {
             StateModel sm = ModelConverter.ToCommon(this.stateControls, App.ModelId, this.ModelName);
             var client = new ModelServices.ModelServicesSoapClient();
+            client.SaveModelCompleted += delegate (object sender, SaveModelCompletedEventArgs args)
+            {
+                App.ModelId = args.Result;
+                MessageBox.Show("Saved");
+            };
             client.SaveModelAsync(App.Username, App.APIKey, sm, SystemKey);
         }
 

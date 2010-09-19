@@ -1,5 +1,5 @@
 <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SignIn.aspx.cs" Inherits="StateMagic.Web.SignIn"
-    MasterPageFile="~/Site1.Master" %>
+    MasterPageFile="~/Master.Master" %>
 
 <%@ Register TagPrefix="recaptcha" Namespace="Recaptcha" Assembly="Recaptcha" %>
 <asp:Content runat="server" ContentPlaceHolderID="head">

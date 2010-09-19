@@ -140,12 +140,12 @@
     <Compile Include="SignIn.aspx.designer.cs">
       <DependentUpon>SignIn.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Site1.Master.cs">
-      <DependentUpon>Site1.Master</DependentUpon>
+    <Compile Include="Master.Master.cs">
+      <DependentUpon>Master.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Site1.Master.designer.cs">
-      <DependentUpon>Site1.Master</DependentUpon>
+    <Compile Include="Master.Master.designer.cs">
+      <DependentUpon>Master.Master</DependentUpon>
     </Compile>
     <Compile Include="UserDetails.aspx.cs">
       <DependentUpon>UserDetails.aspx</DependentUpon>
@@ -177,7 +177,7 @@
     <Content Include="Designer.aspx" />
     <Content Include="Global.asax" />
     <Content Include="ModelServices.asmx" />
-    <Content Include="Site1.Master" />
+    <Content Include="Master.Master" />
     <Content Include="UserDetails.aspx" />
   </ItemGroup>
   <ItemGroup>

@@ -22,6 +22,7 @@ namespace StateMagic.Web
             DataAccess.DatabaseWrapper.Init();
             CredentialData cd = Session["Credentials"] as CredentialData;
             this.AvailableModels.DataSource = cd.Models;
+            this.AvailableModels.DataBind();
 
             AccountBalanceLabel.Text = cd.TransactionBalance.ToString();
         }
