@@ -13,13 +13,13 @@ namespace StateMagic.Web {
     public partial class UserDetails {
         
         /// <summary>
-        /// AvailableModels control.
+        /// namelabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater AvailableModels;
+        protected global::System.Web.UI.WebControls.Label namelabel;
         
         /// <summary>
         /// AccountBalanceLabel control.
@@ -29,5 +29,23 @@ namespace StateMagic.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label AccountBalanceLabel;
+        
+        /// <summary>
+        /// stateDiagramCountLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label stateDiagramCountLabel;
+        
+        /// <summary>
+        /// AvailableModels control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater AvailableModels;
     }
 }

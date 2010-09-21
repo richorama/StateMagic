@@ -27,6 +27,8 @@ namespace StateMagic.Designer
             private set;
         }
 
+        public bool AccountCreated { get; set; }
+
         public Page1()
         {
             InitializeComponent();
@@ -104,6 +106,8 @@ namespace StateMagic.Designer
                 {
                     if (accountForm.DialogResult.HasValue && accountForm.DialogResult.Value)
                     {
+                        //TODO:actually log in, or create the account!!!
+                        AccountCreated = true;
                         ShowSaveDialog();
                     }
                 };
@@ -444,6 +448,11 @@ namespace StateMagic.Designer
             var client = new ModelServices.ModelServicesSoapClient();
             client.SaveModelCompleted += delegate (object sender, SaveModelCompletedEventArgs args)
             {
+                // this save was spawned after an account creation, therefore do a redirect
+                if (AccountCreated)
+                {
+                    System.Windows.Browser.HtmlPage.Window.Navigate(new Uri(string.Format("Designer.aspx?ModelId={0}&username={1}&apikey={2}",args.Result, App.Username, App.APIKey),UriKind.Relative));
+                }
                 App.ModelId = args.Result;
                 MessageBox.Show("Saved");
             };

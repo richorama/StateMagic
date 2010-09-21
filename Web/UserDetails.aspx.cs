@@ -20,9 +20,16 @@ namespace StateMagic.Web
             }
 
             DataAccess.DatabaseWrapper.Init();
+
+            // replenish the cd cache
             CredentialData cd = Session["Credentials"] as CredentialData;
+
+            cd = CredentialData.Find(cd.CredentialDataID);
+
             this.AvailableModels.DataSource = cd.Models;
             this.AvailableModels.DataBind();
+            this.namelabel.Text = cd.Username;
+            this.stateDiagramCountLabel.Text = cd.Models.Count.ToString();
 
             AccountBalanceLabel.Text = cd.TransactionBalance.ToString();
         }

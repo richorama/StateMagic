@@ -13,22 +13,31 @@ namespace StateMagic.Web {
     public partial class Designer {
         
         /// <summary>
-        /// Head1 control.
+        /// SignOutLink control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlHead Head1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl SignOutLink;
         
         /// <summary>
-        /// form1 control.
+        /// UserDetailsLink control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl UserDetailsLink;
+        
+        /// <summary>
+        /// SignInLink control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl SignInLink;
         
         /// <summary>
         /// initParams control.

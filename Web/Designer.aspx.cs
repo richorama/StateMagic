@@ -20,11 +20,15 @@ namespace StateMagic.Web
             CredentialData cd = Session["Credentials"] as CredentialData;
             if (null != cd)
             {
+                // we are not logged in
                 AddParam("username", cd.Username);
                 AddParam("apikey", cd.ApiKey.ToString());
+                this.SignInLink.Visible = false;
             }
             else
             {
+                this.UserDetailsLink.Visible = false;
+                this.SignOutLink.Visible = false;
                 if (null == Session["ApiKey"] as string)
                 {
                     DatabaseWrapper.Init();

@@ -1,12 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Designer.aspx.cs" Inherits="StateMagic.Web.Designer" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Designer.aspx.cs" Inherits="StateMagic.Web.Designer"
+ MasterPageFile="~/Master.Master" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" >
-<head id="Head1" runat="server">
-    <title>StateDesigner</title>
+
+<asp:Content ID="Content1" runat="server" ContentPlaceHolderID="head">
+
     <style type="text/css">
     html, body {
-	    height: 100%;
+	    
 	    overflow: auto;
     }
     body {
@@ -55,9 +55,15 @@
             throw new Error(errMsg);
         }
     </script>
-</head>
-<body>
-    <form id="form1" runat="server" style="height:100%">
+</asp:Content>
+<asp:Content ID="Content2" runat="server" ContentPlaceHolderID=ContentPlaceHolderMenu>
+<ul id="dropmenu">
+    <li runat="server" id="SignOutLink" class="page_item page-item-2"><a href="SignOut.aspx" title="Sign Out">Sign Out</a></li>
+    <li runat="server" id="UserDetailsLink" class="page_item page-item-2"><a href="UserDetails.aspx" title="Your Account">Your Account</a></li>
+    <li runat="server" id="SignInLink" class="page_item page-item-2"><a href="SignIn.aspx" title="Sign In">Sign In</a></li>
+</ul>
+</asp:Content>
+    <asp:Content ID="Content3" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
     <div id="silverlightControlHost">
         <object data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="100%" height="100%">
 		  <param name="source" value="ClientBin/StateDesigner.xap"/>
@@ -71,6 +77,4 @@
  			  <img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style:none"/>
 		  </a>
 	    </object><iframe id="_sl_historyFrame" style="visibility:hidden;height:0px;width:0px;border:0px"></iframe></div>
-    </form>
-</body>
-</html>
+    </asp:Content>
