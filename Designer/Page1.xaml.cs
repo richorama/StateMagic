@@ -69,14 +69,20 @@ namespace StateMagic.Designer
             foreach (var state in states)
             {
                 CreateState(state, state.InitialPosition);
+                
             }
+            UpdateLayout();
             foreach (var state in states)
             {
                 foreach (var arrow in state.ArrowsOut)
                 {
-                    AddArrow(arrow.HeadControl, arrow.TailControl);
+                    this.AddControl(arrow); 
+                    CalcuateArrowPosition(arrow.TailControl, arrow.HeadControl, arrow);
+                    arrow.Stroke = new SolidColorBrush(Colors.DarkGray);
+                    arrow.Update();
                 }
             }
+            
         }
 
         private int stateIndex = 1;

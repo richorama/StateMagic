@@ -55,9 +55,9 @@ namespace StateMagic.DatabaseTypes
             if (null == md)
             {
                 md = new ModelData();
+                md.ModelName = model.ModelName;
             }
             md.AssociatedAccount = this;
-            md.ModelName = model.ModelName;
             md.DeserializedStateModel = model;
             this.Models.Add(md);
             return md;

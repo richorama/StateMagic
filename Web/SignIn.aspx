@@ -4,13 +4,13 @@
 <%@ Register TagPrefix="recaptcha" Namespace="Recaptcha" Assembly="Recaptcha" %>
 <asp:Content runat="server" ContentPlaceHolderID="head">
 
-    <script type="text/javascript">
-        window.onload = function() {
-            Nifty("div#box1", "big");
-            Nifty("div#box2", "big");
-        }
-    </script>
 
+
+</asp:Content>
+<asp:Content runat="server" ContentPlaceHolderID=ContentPlaceHolderMenu>
+<ul id="dropmenu">
+   
+</ul>
 </asp:Content>
 <asp:Content runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
     <center>
@@ -19,17 +19,15 @@
         <table cellspacing="25">
             <tr>
                 <td>
-                    <h3>
-                        Open a new account</h3>
+                    <h3>Open a new account</h3>
                 </td>
                 <td>
-                    <h3>
-                        Sign in</h3>
+                    <h3>Sign in</h3>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <div id="box1" style="background-color: #840300; color: white; padding: 10px; text-align: left;">
+                    <div class="borderRadius" style="background-color: #840300; color: white; padding: 10px; text-align: left;">
                         <table cellspacing="5">
                             <tr>
                                 <td align="right">
@@ -70,7 +68,7 @@
                     </div>
                 </td>
                 <td align="left">
-                    <div id="box2" style="background-color: #2688C4; color: white; padding: 10px; text-align: left;">
+                    <div class="borderRadius" style="background-color: #2688C4; color: white; padding: 10px; text-align: left;">
                         <table cellspacing="5">
                             <tr>
                                 <td align="right">

@@ -16,11 +16,6 @@
 	<link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Nobile">
 	<link rel="stylesheet" type="text/css" href="niftyCorners.css">
 	
-	
-	
-	<script type="text/javascript" src="niftycube.js"></script>
-
-	
 </head>
 <body class="home blog sidebars">
     <div id="navigation">
@@ -35,18 +30,9 @@
                     </h1>
                 </div>
                 <!-- <ul class="links primary-links"> -->
-                
-                <ul id="dropmenu">
-                    <li class="page_item page-item-2"><a href="SignIn.aspx" title="Sign In">
-                        Sign In</a></li>
-                    <li class="page_item page-item-46"><a href="http://wp-themes.com/?page_id=46" title="Parent Page">
-                        Parent Page</a>
-                        <ul>
-                            <li class="page_item page-item-49"><a href="http://wp-themes.com/?page_id=49" title="Sub-page">
-                                Sub-page</a></li>
-                        </ul>
-                    </li>
-                </ul>
+                <asp:ContentPlaceHolder ID="ContentPlaceHolderMenu" runat="server">
+                                
+                </asp:ContentPlaceHolder>
             </div>
             <!-- /header -->
             <div id="sidebar-left" class="sidebar">

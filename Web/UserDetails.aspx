@@ -1,11 +1,22 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserDetails.aspx.cs" Inherits="StateMagic.Web.UserDetails" MasterPageFile="~/Master.Master" %>
 
+<asp:Content ID="Content2" runat="server" ContentPlaceHolderID=ContentPlaceHolderMenu>
+<ul id="dropmenu">
+    <li class="page_item page-item-2"><a href="SignOut.aspx" title="Sign Out">Sign Out</a></li>
+</ul>
+</asp:Content>
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
     <ul>
     <asp:Repeater runat="server" ID="AvailableModels">
-    <ItemTemplate><li><a href="Designer.aspx?ModelId=<%#(Container.DataItem as StateMagic.DatabaseTypes.ModelData).ModelDataID%>"><%#(Container.DataItem as StateMagic.DatabaseTypes.ModelData).ModelName%></a></li></ItemTemplate>
+    <ItemTemplate>
+    <li class="leaf">
+        <a href="Designer.aspx?ModelId=<%#(Container.DataItem as StateMagic.DatabaseTypes.ModelData).ModelDataID%>">
+        <%#(Container.DataItem as StateMagic.DatabaseTypes.ModelData).ModelName%> (<%#(Container.DataItem as StateMagic.DatabaseTypes.ModelData).DeserializedStateModel.States.Count%> states, <%#(Container.DataItem as StateMagic.DatabaseTypes.ModelData).DeserializedStateModel.Transitions.Count%> transitions)
+        </a>
+    </li>
+    </ItemTemplate>
     </asp:Repeater>
-    <li><a href="Designer.aspx">Create a new diagram</a>
+    <li class="leaf"><a href="Designer.aspx">&nbsp;<img src="images/application_go.png"/> Create a new diagram</a>
     </li>
     </ul>
     <br />

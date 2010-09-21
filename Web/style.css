@@ -652,14 +652,11 @@ p
 0.5em;padding:
 0;}.commentnumber
 {font-family:
-'Georgia',
-'Times
-New
-Roman',
-serif
-!important;font-style:
+Georgia, "Times New Roman", serif !important;
+font-style:
 italic
-!important;}.commentlist
+!important;
+}.commentlist
 li
 .commentnumber
 {float:right
@@ -714,3 +711,9 @@ li
 0
 0
 13px;}
+.borderRadius
+{
+-webkit-border-radius: 15px;
+-moz-border-radius: 15px;
+border-radius: 15px;
+}
