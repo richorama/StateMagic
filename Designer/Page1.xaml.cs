@@ -107,6 +107,9 @@ namespace StateMagic.Designer
                     if (accountForm.DialogResult.HasValue && accountForm.DialogResult.Value)
                     {
                         //TODO:actually log in, or create the account!!!
+                        var client = new ModelServices.ModelServicesSoapClient();
+                        //client.CreateAccountAsync(accountForm.
+
                         AccountCreated = true;
                         ShowSaveDialog();
                     }
