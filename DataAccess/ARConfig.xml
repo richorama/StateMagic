@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <activerecord
-    isWeb="false"
+    isWeb="true"
     isDebug="true"
     pluralizeTableNames="false">
   <config>
