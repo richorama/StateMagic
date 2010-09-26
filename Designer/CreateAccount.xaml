@@ -32,6 +32,6 @@
                 </Grid>
             </controls:TabItem>
         </controls:TabControl>
-        <dataInput:Label Grid.Row="1" Height="17" HorizontalAlignment="Left" Margin="6,16,0,0" Name="errorLabel" VerticalAlignment="Top" Width="212" Foreground="Black" />
+        <dataInput:Label Grid.Row="1" Height="17" HorizontalAlignment="Left" Margin="6,16,0,0" Name="errorLabel" VerticalAlignment="Top" Width="212" Foreground="Red" />
     </Grid>
 </controls:ChildWindow>
