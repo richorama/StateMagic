@@ -42,10 +42,16 @@ namespace StateMagic.Designer
 
         private void OKButton_Click(object sender, RoutedEventArgs e)
         {
-            Validate();
-
-
-            this.DialogResult = true;
+            string errorMessage = Validate();
+            if (null != errorMessage)
+            {
+                errorLabel.Content = errorMessage;
+            }
+            else
+            {
+                errorLabel.Content = string.Empty;
+                this.DialogResult = true;
+            }
         }
 
         public string Validate()
@@ -69,8 +75,8 @@ namespace StateMagic.Designer
             }
             if (this.SignInMode == Designer.SignInMode.ExistingAccount)
             {
-            
-            //TODO: finish this off
+
+                return null;
             }
             return null;
         }
@@ -83,9 +89,16 @@ namespace StateMagic.Designer
         {
             get
             {
-                throw new NotImplementedException();
+                return this.SignInMode == Designer.SignInMode.NewAccount ? this.textBoxNewUsername.Text : this.textBoxSignInUsername.Text;
             }
+        }
 
+        public string Password
+        {
+            get
+            {
+                return this.SignInMode == Designer.SignInMode.NewAccount ? this.textBoxNewPassword1.Password : this.textBoxSignInPassword.Password;
+            }
         }
 
     }

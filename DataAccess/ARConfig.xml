@@ -9,7 +9,7 @@
       value="NHibernate.Driver.SqlClientDriver" />
     <add
       key="dialect"
-      value="NHibernate.Dialect.MsSql2000Dialect" />
+      value="NHibernate.Dialect.MsSql2008Dialect" />
     <add
       key="connection.provider"
       value="NHibernate.Connection.DriverConnectionProvider" />

@@ -3,7 +3,7 @@
            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
            xmlns:controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls"
            Width="400" Height="300" 
-           Title="Sign In" xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input">
+           Title="Sign In" xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input" Foreground="#FFB90000">
     <Grid x:Name="LayoutRoot" Margin="2">
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -32,5 +32,6 @@
                 </Grid>
             </controls:TabItem>
         </controls:TabControl>
+        <dataInput:Label Grid.Row="1" Height="17" HorizontalAlignment="Left" Margin="6,16,0,0" Name="errorLabel" VerticalAlignment="Top" Width="212" Foreground="Red" />
     </Grid>
 </controls:ChildWindow>
