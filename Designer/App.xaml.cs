@@ -26,9 +26,13 @@ namespace StateMagic.Designer
 
         public static string Username { get; set; }
 
+        public static string Password { get; set; }
+
         public static int ModelId { get; set; }
 
         public static Guid APIKey { get; set; }
+
+        public static readonly Guid SystemKey = new Guid("3FB3447D-5707-4525-91DF-8FE7B2396088");
 
         private void Application_Startup(object sender, StartupEventArgs e)
         {

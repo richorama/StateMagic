@@ -27,6 +27,7 @@ namespace StateMagic.Web
             try
             {
                 DataAccess.DatabaseWrapper.Init();
+
                 CredentialData cd = CredentialData.FindOne(new ICriterion[] { Restrictions.Eq("Username", username), Restrictions.Eq("ApiKey", apiKey) });
                 if (cd != null && cd.ApiKey == apiKey)
                 {
@@ -127,7 +128,7 @@ namespace StateMagic.Web
             DatabaseWrapper.Init();
             
             var key = ApiKey.FindFirst(Restrictions.Eq("APIKey", apiKey));
-            if (null == key || key.DateCreated > DateTime.Now.AddDays(-1))
+            if (null == key || key.DateCreated < DateTime.Now.AddDays(-1))
             {
                 throw new System.Security.SecurityException("Invalid API Key");
             }

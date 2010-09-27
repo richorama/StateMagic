@@ -40,7 +40,7 @@ namespace StateMagic.Designer
                 // load initial state
                 ModelServices.ModelServicesSoapClient client = new ModelServicesSoapClient();
                 client.GetModelCompleted += new EventHandler<GetModelCompletedEventArgs>(client_GetModelCompleted);
-                client.GetModelAsync(App.Username, App.APIKey, App.ModelId, SystemKey);
+                client.GetModelAsync(App.Username, App.APIKey, App.ModelId, App.SystemKey);
             }
             else
             {
@@ -102,28 +102,48 @@ namespace StateMagic.Designer
                 // you are not a user, create an account
                 CreateAccount accountForm = new CreateAccount();
 
-                accountForm.Closed += delegate
+                accountForm.Closed += delegate 
                 {
                     if (accountForm.DialogResult.HasValue && accountForm.DialogResult.Value)
                     {
                         var client = new ModelServices.ModelServicesSoapClient();
                         AccountCreated = true;
+                        App.Username = accountForm.Username;
+                        App.Password = accountForm.Password;
 
                         switch (accountForm.SignInMode)
                         {
                             case SignInMode.ExistingAccount:
-                                client.LogInCompleted += delegate
+                                client.LogInCompleted += delegate (object sender2, LogInCompletedEventArgs args)
                                 {
-                                    ShowSaveDialog();
+                                    if (args.Error != null)
+                                    {
+                                        MessageBox.Show(args.Error.ToString());
+                                    }
+                                    else
+                                    {
+                                        ShowSaveDialog();
+                                        App.APIKey = args.Result;
+                                    }
                                 };
-                                client.LogInAsync(accountForm.Username, accountForm.Password, App.APIKey, SystemKey);
+                                client.LogInAsync(App.Username, App.Password, App.APIKey, App.SystemKey);
                                 break;
                             case SignInMode.NewAccount:
-                                client.CreateAccountCompleted += delegate
+                                client.CreateAccountCompleted += delegate (object sender2, CreateAccountCompletedEventArgs args)
                                 {
-                                    ShowSaveDialog();
+                                    if (args.Result)
+                                    {
+                                        ShowSaveDialog();
+                                    }
+                                    else
+                                    {
+                                        App.Username = string.Empty;
+                                        App.Password = string.Empty;
+                                        AccountCreated = false;
+                                        MessageBox.Show("Unable to create account");
+                                    }
                                 };
-                                client.CreateAccountAsync(accountForm.Username, App.APIKey, accountForm.Password, SystemKey);
+                                client.CreateAccountAsync(App.Username, App.APIKey, App.Password, App.SystemKey);
                                 break;
                         }
                     }
@@ -465,18 +485,26 @@ namespace StateMagic.Designer
             var client = new ModelServices.ModelServicesSoapClient();
             client.SaveModelCompleted += delegate (object sender, SaveModelCompletedEventArgs args)
             {
-                // this save was spawned after an account creation, therefore do a redirect
-                if (AccountCreated)
+                if (args.Error != null)
                 {
-                    System.Windows.Browser.HtmlPage.Window.Navigate(new Uri(string.Format("Designer.aspx?ModelId={0}&username={1}&apikey={2}",args.Result, App.Username, App.APIKey),UriKind.Relative));
+                    MessageBox.Show(args.Error.ToString());
                 }
-                App.ModelId = args.Result;
-                MessageBox.Show("Saved");
+                else
+                {
+
+                    // this save was spawned after an account creation, therefore do a redirect
+                    if (AccountCreated)
+                    {
+                        System.Windows.Browser.HtmlPage.Window.Navigate(new Uri(string.Format("Designer.aspx?mode=start&ModelId={0}&username={1}&apikey={2}", args.Result, App.Username, App.APIKey), UriKind.Relative));
+                    }
+                    App.ModelId = args.Result;
+                    MessageBox.Show("Saved");
+                }
             };
-            client.SaveModelAsync(App.Username, App.APIKey, sm, SystemKey);
+            client.SaveModelAsync(App.Username, App.APIKey, sm, App.SystemKey);
         }
 
 
-        public static readonly Guid SystemKey = new Guid("3FB3447D-5707-4525-91DF-8FE7B2396088");
+        
     }
 }

@@ -17,6 +17,20 @@ namespace StateMagic.Web
         protected void Page_Load(object sender, EventArgs e)
         {
 
+            if (Request["mode"] == "start")
+            { 
+                var newcd = ModelServices.LogIn(Request["username"], new Guid(Request["apikey"]));
+                if (newcd != null)
+                {
+                    Session["Credentials"] = newcd;
+                    Response.Redirect(string.Format("Designer.aspx?ModelId={0}", Request["ModelId"]));
+                }
+                else
+                {
+                    Response.Redirect("default.htm");
+                }
+            }
+
             CredentialData cd = Session["Credentials"] as CredentialData;
             if (null != cd)
             {
