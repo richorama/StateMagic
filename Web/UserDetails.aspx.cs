@@ -30,6 +30,7 @@ namespace StateMagic.Web
             this.AvailableModels.DataBind();
             this.namelabel.Text = cd.Username;
             this.stateDiagramCountLabel.Text = cd.Models.Count.ToString();
+            this.APIKey1.Text = cd.ApiKey.ToString();
 
             AccountBalanceLabel.Text = cd.TransactionBalance.ToString();
         }

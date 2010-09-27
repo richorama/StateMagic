@@ -53,6 +53,18 @@
 	    <img alt="" border="0" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1">
     </form>
     
+    <br /><br />
+
+    Your developer API Key is <asp:Label runat="server" ID="APIKey1" /><br />
+    The WSDL for the web service is here: <a href="http://statemagic.com/WebServices.asmx?wsdl">http://statemagic.com/WebServices.asmx?wsdl</a>
+    <br />
+    Example code:
+    <blockquote>
+    
+    </blockquote>
+
     </div>
+
+
 
 </asp:Content>
