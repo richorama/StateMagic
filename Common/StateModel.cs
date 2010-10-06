@@ -30,7 +30,14 @@ namespace StateMagic.Common
 
         public State GetStateByName(string stateName)
         {
-            return (from state in this.States where string.Compare(stateName, state.Name,StringComparison.InvariantCultureIgnoreCase) == 0 select state).First();
+            if (string.IsNullOrEmpty(stateName))
+            {
+                return (from state in this.States where state.Default select state).First();
+            }
+            else
+            {
+                return (from state in this.States where string.Compare(stateName, state.Name,StringComparison.InvariantCultureIgnoreCase) == 0 select state).First();
+            }
         }
 
     }

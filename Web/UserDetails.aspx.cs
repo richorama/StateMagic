@@ -31,6 +31,17 @@ namespace StateMagic.Web
             this.namelabel.Text = cd.Username;
             this.stateDiagramCountLabel.Text = cd.Models.Count.ToString();
             this.APIKey1.Text = cd.ApiKey.ToString();
+            this.usernameSnippet.Text = cd.Username;
+            this.apiKeySnippet.Text = cd.ApiKey.ToString();
+            if (cd.Models.Count > 0)
+            {
+                this.modelIdSnippet.Text = cd.Models[0].ModelDataID.ToString();
+            }
+            else
+            {
+                this.modelIdSnippet.Text = "1";
+            }
+
 
             AccountBalanceLabel.Text = cd.TransactionBalance.ToString();
         }

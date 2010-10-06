@@ -46,39 +46,36 @@ namespace StateMagic.Web
             throw new System.Security.SecurityException();
         }
 
-        //[WebMethod]
-        //public List<ModelSummary> GetAllModels(string username, string password)
-        //{
-        //    CredentialData cd = LogIn(username, password);
-        //    return (from md in cd.Models select md.CreateModelSummary()).ToList();
-        //}
+        internal static CredentialData LogIn(string username, Guid apiKey)
+        {
+            try
+            {
+                DataAccess.DatabaseWrapper.Init();
+                CredentialData cd = CredentialData.FindOne(new ICriterion[] { Restrictions.Eq("Username", username), Restrictions.Eq("ApiKey", apiKey) });
+                if (cd != null)
+                {
+                    cd.LastAuthentication = DateTime.Now;
+                    cd.Authentications++;
+                    cd.Save();
+                    return cd;
+                }
+                else
+                {
+                    throw new System.Security.SecurityException();
+                }
+            }
+            catch
+            {
+                throw new System.Security.SecurityException();
+            }
+            throw new System.Security.SecurityException();
+        }
 
-        //[WebMethod]
-        //public StateModel GetModel(string username, string password, int modelId)
-        //{
-        //    CredentialData cd = LogIn(username, password);
-        //    StateModel sm = (from md in cd.Models where md.ModelDataID == modelId select md.DeserializedStateModel).First();
-        //    if (null == sm)
-        //    {
-        //        return null;
-        //    }
-        //    sm.ModelID = modelId;
-        //    return sm;
-        //}
-
-        //[WebMethod]
-        //public void SaveModel(string username, string password, StateModel model)
-        //{
-        //    CredentialData cd = LogIn(username, password);
-        //    ModelData md = cd.UpdateModel(model);
-        //    md.Save();
-        //    cd.Save();
-        //}
 
         [WebMethod]
-        public List<string> GetNextState(string username, string password, int modelID, string currentState)
+        public List<string> GetNextState(string username, Guid  apiKey, int modelID, string currentState)
         {
-            CredentialData cd = LogIn(username, password);
+            CredentialData cd = LogIn(username, apiKey);
             if (cd.TransactionBalance <= 0)
             {
                 throw new Exception("Account balance is zero. Please top up your account.");

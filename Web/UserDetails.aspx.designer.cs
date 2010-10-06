@@ -55,6 +55,33 @@ namespace StateMagic.Web {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label APIKey1;
+        protected global::System.Web.UI.WebControls.TextBox APIKey1;
+        
+        /// <summary>
+        /// usernameSnippet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label usernameSnippet;
+        
+        /// <summary>
+        /// apiKeySnippet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label apiKeySnippet;
+        
+        /// <summary>
+        /// modelIdSnippet control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label modelIdSnippet;
     }
 }

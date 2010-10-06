@@ -108,8 +108,6 @@
     <Content Include="images\twitter-logo.png" />
     <Content Include="images\user-admin.png" />
     <Content Include="images\user-student.png" />
-    <Content Include="niftyCorners.css" />
-    <Content Include="niftycube.js" />
     <Content Include="SignIn.aspx" />
     <Content Include="SignOut.aspx" />
     <Content Include="Silverlight.js" />
