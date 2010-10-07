@@ -6,13 +6,13 @@
 </ul>
 </asp:Content>
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
-<h3>Hi, <asp:Label runat="server" ID="namelabel"></asp:Label></h3>
+<h3>Hi, <%= this.Credentials.Username%></h3>
 <br />
 <div  style="width:50%; display:inline; float:left">
     <h3>Your Account</h3>
     Your account balance is <strong><asp:Label runat="server" ID="AccountBalanceLabel"></asp:Label></strong> transactions remaining.
     <br />
-    You have <strong><asp:Label runat="server" ID="stateDiagramCountLabel"></asp:Label></strong> state diagrams.
+    You have <strong><%=this.Credentials.Models.Count.ToString() %></strong> state diagrams.
     <br />
     <br />
     <a href="Designer.aspx">&nbsp;<img src="images/application_go.png"/> Create a new diagram</a>
@@ -58,7 +58,8 @@
     <br /><br />
     <h3>Development</h3>
     Your developer API Key is<br />
-    <asp:TextBox runat="server" ID="APIKey1" ReadOnly="true" Width="250" /><br />
+    <input readonly="readonly" value="<%= this.Credentials.ApiKey.ToString() %>" size="38/>
+    <br />
     <br />
     The WSDL for the web service: <a href="http://statemagic.com/WebServices.asmx?wsdl">http://statemagic.com/WebServices.asmx?wsdl</a>
     <br /><br />
@@ -69,8 +70,8 @@
 <pre class="csharpcode">
 <span class="kwrd">var</span> client = <span class="kwrd">new</span> StateMagic.WebServicesSoapClient();
 
-<span class="kwrd">var</span> username = <span class="str">"<asp:Label runat="server" ID="usernameSnippet"/>"</span>;
-<span class="kwrd">var</span> apiKey = <span class="kwrd">new</span> Guid(<span class="str">"<asp:Label runat="server" ID="apiKeySnippet"/>"</span>);
+<span class="kwrd">var</span> username = <span class="str">"<%= this.Credentials.Username%>"</span>;
+<span class="kwrd">var</span> apiKey = <span class="kwrd">new</span> Guid(<span class="str">"<%= this.Credentials.ApiKey%>"</span>);
 <span class="kwrd">var</span> diagramId = <asp:Label runat="server" ID="modelIdSnippet" />; <span class="rem">// the id of the diagram you wish to use</span>
 <span class="kwrd">string</span> currentState = <span class="kwrd">null</span>;
             
@@ -86,7 +87,12 @@
 }</pre>
 </div>
     </div>
-
+    <br /><br />
+    <h3>Rest URL</h3>
+    For the REST interface, use this URL:<br />
+    <br />
+    <a href="http://statemagic.com/Rest.aspx?username=<%= Server.UrlEncode(this.Credentials.Username)%>&apikey=<%=this.Credentials.ApiKey.ToString() %>&modelid=1">http://statemagic.com/Rest.aspx?username=<%= Server.UrlEncode(this.Credentials.Username)%>&apikey=<%=this.Credentials.ApiKey.ToString() %>&modelid=1</a>
+    
 
 
 </asp:Content>

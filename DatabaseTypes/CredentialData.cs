@@ -35,7 +35,7 @@ namespace StateMagic.DatabaseTypes
 
         public ModelData GetModelDataById(int id)
         {
-            return (from md in this.Models where md.ModelDataID == id select md).First();
+            return (from md in this.Models where md.ModelDataID == id select md).FirstOrDefault();
         }
 
         [Property]

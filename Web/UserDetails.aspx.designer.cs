@@ -13,15 +13,6 @@ namespace StateMagic.Web {
     public partial class UserDetails {
         
         /// <summary>
-        /// namelabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label namelabel;
-        
-        /// <summary>
         /// AccountBalanceLabel control.
         /// </summary>
         /// <remarks>
@@ -31,15 +22,6 @@ namespace StateMagic.Web {
         protected global::System.Web.UI.WebControls.Label AccountBalanceLabel;
         
         /// <summary>
-        /// stateDiagramCountLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label stateDiagramCountLabel;
-        
-        /// <summary>
         /// AvailableModels control.
         /// </summary>
         /// <remarks>
@@ -47,33 +29,6 @@ namespace StateMagic.Web {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater AvailableModels;
-        
-        /// <summary>
-        /// APIKey1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox APIKey1;
-        
-        /// <summary>
-        /// usernameSnippet control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label usernameSnippet;
-        
-        /// <summary>
-        /// apiKeySnippet control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label apiKeySnippet;
         
         /// <summary>
         /// modelIdSnippet control.

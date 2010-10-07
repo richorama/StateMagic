@@ -12,6 +12,16 @@ namespace StateMagic.Web
 {
     public partial class UserDetails : System.Web.UI.Page
     {
+        public string Username 
+        {
+            get
+            {
+                return this.Credentials.Username;
+            }
+        }
+
+        public CredentialData Credentials { get; private set;}
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (null == Session["Credentials"])
@@ -26,13 +36,9 @@ namespace StateMagic.Web
 
             cd = CredentialData.Find(cd.CredentialDataID);
 
+            this.Credentials = cd;
             this.AvailableModels.DataSource = cd.Models;
             this.AvailableModels.DataBind();
-            this.namelabel.Text = cd.Username;
-            this.stateDiagramCountLabel.Text = cd.Models.Count.ToString();
-            this.APIKey1.Text = cd.ApiKey.ToString();
-            this.usernameSnippet.Text = cd.Username;
-            this.apiKeySnippet.Text = cd.ApiKey.ToString();
             if (cd.Models.Count > 0)
             {
                 this.modelIdSnippet.Text = cd.Models[0].ModelDataID.ToString();
