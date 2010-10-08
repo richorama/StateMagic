@@ -12,11 +12,12 @@ namespace StateMagic.Web
 {
     public partial class UserDetails : System.Web.UI.Page
     {
-        public string Username 
+
+        public int LastModelId
         {
             get
             {
-                return this.Credentials.Username;
+                return this.Credentials.Models.Count == 0 ? 0 : this.Credentials.Models.Last().ModelDataID;
             }
         }
 
@@ -24,7 +25,7 @@ namespace StateMagic.Web
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (null == Session["Credentials"])
+            if (null == Session["Credentials"] as CredentialData)
             {
                 Response.Redirect("SignIn.aspx");
             }
@@ -34,22 +35,11 @@ namespace StateMagic.Web
             // replenish the cd cache
             CredentialData cd = Session["Credentials"] as CredentialData;
 
-            cd = CredentialData.Find(cd.CredentialDataID);
+            this.Credentials = CredentialData.Find(cd.CredentialDataID);
 
-            this.Credentials = cd;
-            this.AvailableModels.DataSource = cd.Models;
+            this.AvailableModels.DataSource = this.Credentials.Models;
             this.AvailableModels.DataBind();
-            if (cd.Models.Count > 0)
-            {
-                this.modelIdSnippet.Text = cd.Models[0].ModelDataID.ToString();
-            }
-            else
-            {
-                this.modelIdSnippet.Text = "1";
-            }
 
-
-            AccountBalanceLabel.Text = cd.TransactionBalance.ToString();
         }
     }
 }
