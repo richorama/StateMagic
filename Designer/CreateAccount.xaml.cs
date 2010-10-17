@@ -101,6 +101,14 @@ namespace StateMagic.Designer
             }
         }
 
+        private void textBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                OKButton_Click(sender, e);
+            }
+        }
+
     }
 }
 

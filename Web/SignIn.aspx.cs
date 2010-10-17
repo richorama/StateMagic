@@ -14,6 +14,25 @@ namespace StateMagic.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!this.IsPostBack)
+            {
+                if (!string.IsNullOrEmpty(this.Request.Form["SignInEmailAddress"]) && !string.IsNullOrEmpty(this.Request.Form["SignInPassword"]))
+                {
+
+                    try
+                    {
+                        CredentialData cd = WebServices.LogIn(this.Request.Form["SignInEmailAddress"], this.Request.Form["SignInPassword"]);
+                        Session["Credentials"] = cd;
+                        Response.Redirect("UserDetails.aspx");
+                    }
+                    catch (Exception ex)
+                    {
+                        ErrorMessages.Text = ex.Message;
+                    }
+                }
+                
+            }
+
 
         }
 
@@ -58,7 +77,7 @@ namespace StateMagic.Web
             Response.Redirect("UserDetails.aspx");
 
         }
-
+        /*
         protected void SignInButton_Click(object sender, EventArgs e)
         {
             try
@@ -73,7 +92,7 @@ namespace StateMagic.Web
             }
 
         }
-
+        */
 
     }
 }

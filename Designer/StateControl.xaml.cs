@@ -232,7 +232,7 @@ namespace StateMagic.Designer
                 }
                 else
                 {
-                    this.ellipse1.Fill = new SolidColorBrush(LightBlue);
+                    //this.ellipse1.Fill = new SolidColorBrush(LightBlue);
                     this.label2.Visibility = Visibility.Collapsed;
                 }
                 this.startState = value;

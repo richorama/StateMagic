@@ -487,7 +487,7 @@ namespace StateMagic.Designer
             {
                 if (args.Error != null)
                 {
-                    MessageBox.Show(args.Error.ToString());
+                    this.toast1.Show("Save failed!");
                 }
                 else
                 {
@@ -498,7 +498,7 @@ namespace StateMagic.Designer
                         System.Windows.Browser.HtmlPage.Window.Navigate(new Uri(string.Format("Designer.aspx?mode=start&ModelId={0}&username={1}&apikey={2}", args.Result, App.Username, App.APIKey), UriKind.Relative));
                     }
                     App.ModelId = args.Result;
-                    MessageBox.Show("Saved");
+                    this.toast1.Show("Saved");
                 }
             };
             client.SaveModelAsync(App.Username, App.APIKey, sm, App.SystemKey);

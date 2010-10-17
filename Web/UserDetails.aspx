@@ -6,6 +6,8 @@
 </ul>
 </asp:Content>
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
+<form id="form1" runat="server">
+                     
 <h3>Hi, <%= this.Credentials.Username%></h3>
 <br/>
 <hr />
@@ -31,11 +33,16 @@
 	<input type="image" src="https://www.paypal.com/en_US/GB/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online." style="border: 0px solid white">
 	<img alt="" border="0" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1">
     </form>
+    <br />
+    <br />
+    Your developer API Key is <input readonly="readonly" value="<%= this.Credentials.ApiKey.ToString() %>" size="38"/>
+    
     </div>
     <div  style="width:50%; display:inline; float:left">
     <h3>Your diagrams</h3>
     You have <strong><%=this.Credentials.Models.Count.ToString() %></strong> state diagrams.
     <br />
+    <div style="overflow:auto; height:200px;border:1px solid #67AAF4; padding:5px; -moz-border-radius:5px; border-radius:5px;">
     <ul>
     <asp:Repeater runat="server" ID="AvailableModels">
     <ItemTemplate>
@@ -48,21 +55,16 @@
     </ItemTemplate>
     </asp:Repeater>
     </ul>
+    </div>
     <br />
-    <a href="Designer.aspx">&nbsp;<img src="images/application_go.png"/> Create a new diagram</a>
+    <h3><a href="Designer.aspx">&nbsp;<img src="images/application_go.png"/> Create a new diagram</a></h3>
     <br />
-    <br />
-    
-
     </div>
     <div style="display:block">
     <br/>&nbsp;
 <hr />
 <br />
-    <h3>Development</h3>
-    Your developer API Key is <input readonly="readonly" value="<%= this.Credentials.ApiKey.ToString() %>" size="38"/>
-    <br />
-    <br />
+    <h3>Web Service Interface (SOAP)</h3>
     The WSDL for the web service: <a href="http://statemagic.com/WebServices.asmx?wsdl">http://statemagic.com/WebServices.asmx?wsdl</a>
     <br /><br />
     Example code calling the web service client:
@@ -89,11 +91,11 @@
 </div>
   
     <br /><br />
-    <h3>Rest URL</h3>
+    <h3>RESTful Interface</h3>
     For the REST interface, use this URL:<br />
     <br />
     <a href="http://statemagic.com/Rest.aspx?username=<%= Server.UrlEncode(this.Credentials.Username)%>&apikey=<%=this.Credentials.ApiKey.ToString() %>&modelid=1">http://statemagic.com/Rest.aspx?username=<%= Server.UrlEncode(this.Credentials.Username)%>&apikey=<%=this.Credentials.ApiKey.ToString() %>&modelid=<%= this.LastModelId.ToString() %></a><br /><br />
-    Example output:<br /><br />
+    Example output:<br />
     <div style="border:1px solid #67AAF4; padding:5px; -moz-border-radius:5px; border-radius:5px;">
     <pre class="csharpcode">
 <span class="kwrd">&lt;</span><span class="html">states</span><span class="kwrd">&gt;</span> 
@@ -106,4 +108,5 @@
 <span class="kwrd">&lt;/</span><span class="html">states</span><span class="kwrd">&gt;</span> </pre>
 </div>
 </div>
+</form>
 </asp:Content>

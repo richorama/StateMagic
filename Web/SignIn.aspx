@@ -27,6 +27,7 @@
             </tr>
             <tr>
                 <td>
+                <form id="form1" runat="server">
                     <div class="borderRadius" style="background-color: #840300; color: white; padding: 10px; text-align: left;">
                         <table cellspacing="5">
                             <tr>
@@ -66,8 +67,10 @@
                             </tr>
                         </table>
                     </div>
+                    </form>
                 </td>
                 <td align="left">
+                    <form id="form2" method="post">
                     <div class="borderRadius" style="background-color: #2688C4; color: white; padding: 10px; text-align: left;">
                         <table cellspacing="5">
                             <tr>
@@ -75,7 +78,7 @@
                                     Email Address:
                                 </td>
                                 <td>
-                                    <asp:TextBox Width="180" runat="server" ID="SignInEmailAddress"></asp:TextBox>
+                                    <input style="width:180px" name="SignInEmailAddress"/>
                                 </td>
                             </tr>
                             <tr>
@@ -83,16 +86,17 @@
                                     Password:
                                 </td>
                                 <td>
-                                    <asp:TextBox Width="180" runat="server" ID="SignInPassword" TextMode="Password"></asp:TextBox>
+                                    <input style="width:180px" name="SignInPassword" type="password"/>
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2" align="right">
-                                    <asp:Button runat="server" ID="SignInButton" Text="Sign In" OnClick="SignInButton_Click" />
+                                    <input type="submit" ID="SignInButton" Text="Sign In" />
                                 </td>
                             </tr>
                         </table>
                     </div>
+                    </form>
                 </td>
             </tr>
         </table>

@@ -40,6 +40,14 @@ namespace StateMagic.Designer
         {
             this.DialogResult = false;
         }
+
+        private void textBox1_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                OKButton_Click(sender, e);
+            }
+        }
     }
 }
 

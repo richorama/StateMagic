@@ -64,6 +64,7 @@
 </ul>
 </asp:Content>
     <asp:Content ID="Content3" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
+    <form id="form1" runat="server">
     <div id="silverlightControlHost">
         <object data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="100%" height="100%">
 		  <param name="source" value="ClientBin/StateDesigner.xap"/>
@@ -77,4 +78,5 @@
  			  <img src="http://go.microsoft.com/fwlink/?LinkId=161376" alt="Get Microsoft Silverlight" style="border-style:none"/>
 		  </a>
 	    </object><iframe id="_sl_historyFrame" style="visibility:hidden;height:0px;width:0px;border:0px"></iframe></div>
+        </form>
     </asp:Content>
