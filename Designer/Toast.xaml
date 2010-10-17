@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="StateMagic.Designer.Toast"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="97" d:DesignWidth="334" xmlns:dataInput="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Data.Input">
+    
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Rectangle Margin="12" Name="rectangle1" Stroke="#6F000000" StrokeThickness="1" RadiusX="15" RadiusY="15" Fill="#6F000000" />
+        <dataInput:Label Margin="25,27,24,22" Name="label1" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold" FontSize="18" />
+    </Grid>
+    <UserControl.Resources>
+
+        <Storyboard x:Name="HideToast">
+            <DoubleAnimation
+                Duration="00:00:03"
+                From="1.00"
+                To="0.00"
+                Storyboard.TargetName="LayoutRoot"
+                Storyboard.TargetProperty="Opacity"/>
+        </Storyboard>
+
+    </UserControl.Resources>
+</UserControl>
