@@ -15,7 +15,7 @@ namespace StateMagic.InitData
         public void CreateSchema()
         {
             DataAccess.DatabaseWrapper.Init();
-            ActiveRecordStarter.CreateSchema();
+            ActiveRecordStarter.GenerateCreationScripts("schema.sql");
         }
 
     }

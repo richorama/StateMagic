@@ -4,6 +4,7 @@
     isDebug="true"
     pluralizeTableNames="false">
   <config>
+      <!--
     <add
       key="connection.driver_class"
       value="NHibernate.Driver.SqlClientDriver" />
@@ -21,6 +22,26 @@
     <add
       key="connection.connection_string"
       value="Data Source=.\SQLExpress;Initial Catalog=SM;integrated security=true" />
+      -->
+
+      <add
+          key="connection.provider"
+          value="NHibernate.Connection.DriverConnectionProvider"
+          />
+      <add
+          key="dialect"
+          value="NHibernate.JetDriver.JetDialect, NHibernate.JetDriver"
+          />
+      <add
+          key="connection.driver_class"
+          value="NHibernate.JetDriver.JetDriver, NHibernate.JetDriver"
+          />
+      <add
+          key="connection.connection_string"
+          value="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=db\SM.mdb"
+          />
+
+     
   </config>
 
 </activerecord>
