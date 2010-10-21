@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using NUnit.Framework;
 using Castle.ActiveRecord;
-using StateMagic.DataAccess;
 
 namespace StateMagic.InitData
 {
@@ -14,8 +13,8 @@ namespace StateMagic.InitData
         [Test]
         public void CreateSchema()
         {
-            DataAccess.DatabaseWrapper.Init();
-            ActiveRecordStarter.GenerateCreationScripts("schema.sql");
+            //DataAccess.DatabaseWrapper.Init();
+            //ActiveRecordStarter.GenerateCreationScripts("schema.sql");
         }
 
     }

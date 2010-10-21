@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
+using Castle.ActiveRecord;
+using Castle.ActiveRecord.Framework.Config;
+using StateMagic.DatabaseTypes;
 
 namespace StateMagic.Web
 {
@@ -12,6 +15,10 @@ namespace StateMagic.Web
 
         protected void Application_Start(object sender, EventArgs e)
         {
+            ActiveRecordStarter.Initialize(typeof(CredentialData).Assembly, ActiveRecordSectionHandler.Instance);
+
+            // If you want to let ActiveRecord create the schema for you:
+            ActiveRecordStarter.CreateSchema();
 
         }
 

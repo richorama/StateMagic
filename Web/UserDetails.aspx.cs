@@ -6,7 +6,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using StateMagic.Common;
 using StateMagic.DatabaseTypes;
-using StateMagic.DataAccess;
 
 namespace StateMagic.Web
 {
@@ -30,7 +29,6 @@ namespace StateMagic.Web
                 Response.Redirect("SignIn.aspx");
             }
 
-            DataAccess.DatabaseWrapper.Init();
 
             // replenish the cd cache
             CredentialData cd = Session["Credentials"] as CredentialData;

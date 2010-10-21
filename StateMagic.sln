@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Web Developer Express 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateMagic.Common", "Common\StateMagic.Common.csproj", "{B10B9E20-08D5-4989-8659-C7FAB3176908}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateMagic.DataAccess", "DataAccess\StateMagic.DataAccess.csproj", "{BADAF8A2-49CC-4B2D-AAFB-25B6BABA88C2}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateMagic.DatabaseTypes", "DatabaseTypes\StateMagic.DatabaseTypes.csproj", "{B611599B-197F-4EAD-B9C8-A2299C72D83D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateMagic.InitData", "InitData\StateMagic.InitData.csproj", "{E79786C2-2B18-47D1-942E-1BB06F93D196}"
@@ -26,10 +24,6 @@ Global
 		{B10B9E20-08D5-4989-8659-C7FAB3176908}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B10B9E20-08D5-4989-8659-C7FAB3176908}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B10B9E20-08D5-4989-8659-C7FAB3176908}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BADAF8A2-49CC-4B2D-AAFB-25B6BABA88C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BADAF8A2-49CC-4B2D-AAFB-25B6BABA88C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BADAF8A2-49CC-4B2D-AAFB-25B6BABA88C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BADAF8A2-49CC-4B2D-AAFB-25B6BABA88C2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B611599B-197F-4EAD-B9C8-A2299C72D83D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B611599B-197F-4EAD-B9C8-A2299C72D83D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B611599B-197F-4EAD-B9C8-A2299C72D83D}.Release|Any CPU.ActiveCfg = Release|Any CPU

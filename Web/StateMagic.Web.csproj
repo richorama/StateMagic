@@ -177,10 +177,6 @@
       <Project>{B10B9E20-08D5-4989-8659-C7FAB3176908}</Project>
       <Name>StateMagic.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DataAccess\StateMagic.DataAccess.csproj">
-      <Project>{BADAF8A2-49CC-4B2D-AAFB-25B6BABA88C2}</Project>
-      <Name>StateMagic.DataAccess</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DatabaseTypes\StateMagic.DatabaseTypes.csproj">
       <Project>{B611599B-197F-4EAD-B9C8-A2299C72D83D}</Project>
       <Name>StateMagic.DatabaseTypes</Name>

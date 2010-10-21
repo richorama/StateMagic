@@ -5,8 +5,6 @@ using System.Web;
 using System.Web.Services;
 using StateMagic.DatabaseTypes;
 using StateMagic.Common;
-using StateMagic.DataAccess;
-using Castle.ActiveRecord;
 using NHibernate.Search;
 using NHibernate.Criterion;
 
@@ -25,7 +23,6 @@ namespace StateMagic.Web
         {
             try
             {
-                DataAccess.DatabaseWrapper.Init();
                 CredentialData cd = CredentialData.FindOne(new ICriterion[] { Restrictions.Eq("Username", username), Restrictions.Eq("Password", password) });
                 if (cd != null && cd.Password == password)
                 {
@@ -50,7 +47,6 @@ namespace StateMagic.Web
         {
             try
             {
-                DataAccess.DatabaseWrapper.Init();
                 CredentialData cd = CredentialData.FindOne(new ICriterion[] { Restrictions.Eq("Username", username), Restrictions.Eq("ApiKey", apiKey) });
                 if (cd != null)
                 {

@@ -5,7 +5,6 @@ using System.Web;
 using System.Web.Services;
 using StateMagic.DatabaseTypes;
 using StateMagic.Common;
-using StateMagic.DataAccess;
 using Castle.ActiveRecord;
 using NHibernate.Search;
 using NHibernate.Criterion;
@@ -26,8 +25,6 @@ namespace StateMagic.Web
         {
             try
             {
-                DataAccess.DatabaseWrapper.Init();
-
                 CredentialData cd = CredentialData.FindOne(new ICriterion[] { Restrictions.Eq("Username", username), Restrictions.Eq("ApiKey", apiKey) });
                 if (cd != null && cd.ApiKey == apiKey)
                 {
@@ -93,7 +90,6 @@ namespace StateMagic.Web
         public static CredentialData CreateAccount(string username, Guid newApiKey, string password)
         {
             var errorMessages = new List<string>();
-            DataAccess.DatabaseWrapper.Init();
 
             CredentialData[] matches = CredentialData.FindAllByProperty("Username", username);
             if (matches.Length > 0)
@@ -125,7 +121,6 @@ namespace StateMagic.Web
 
         internal static void CheckApiKey(Guid apiKey)
         {
-            DatabaseWrapper.Init();
             
             var key = ApiKey.FindFirst(Restrictions.Eq("APIKey", apiKey));
             if (null == key || key.DateCreated < DateTime.Now.AddDays(-1))

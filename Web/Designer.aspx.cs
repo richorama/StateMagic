@@ -6,7 +6,6 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using StateMagic.Common;
 using StateMagic.DatabaseTypes;
-using StateMagic.DataAccess;
 
 namespace StateMagic.Web
 {
@@ -45,7 +44,6 @@ namespace StateMagic.Web
                 this.SignOutLink.Visible = false;
                 if (null == Session["ApiKey"] as string)
                 {
-                    DatabaseWrapper.Init();
                     Guid key = Guid.NewGuid();
                     ApiKey apiKey = new ApiKey();
                     apiKey.APIKey = key;
