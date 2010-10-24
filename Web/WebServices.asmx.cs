@@ -21,8 +21,8 @@ namespace StateMagic.Web
         
         internal static CredentialData LogIn(string username, string password)
         {
-            try
-            {
+            //try
+            //{
                 CredentialData cd = CredentialData.FindOne(new ICriterion[] { Restrictions.Eq("Username", username), Restrictions.Eq("Password", password) });
                 if (cd != null && cd.Password == password)
                 {
@@ -35,11 +35,11 @@ namespace StateMagic.Web
                 {
                     throw new System.Security.SecurityException();
                 }
-            }
-            catch
-            {
-                throw new System.Security.SecurityException();
-            }
+            //}
+            //catch
+            //{
+            //    throw new System.Security.SecurityException();
+            //}
             throw new System.Security.SecurityException();
         }
 

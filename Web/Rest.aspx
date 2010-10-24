@@ -2,7 +2,7 @@
 <?xml version="1.0"?><asp:Repeater runat="server" ID="repeater">
 <HeaderTemplate><states>
 </HeaderTemplate>
-<ItemTemplate>  <state href="?state=<%#(Container.DataItem as string)%>&username=<%= Server.UrlEncode(this.Credentials.Username) %>&apikey=<%= this.Credentials.ApiKey %>&modelid=<%= this.ModelId%>"><%#(Container.DataItem as string)%></state>
+<ItemTemplate>  <state href="http://statemagic.com/Rest.aspx?state=<%#(Container.DataItem as string)%>&username=<%= Server.UrlEncode(this.Credentials.Username) %>&apikey=<%= this.Credentials.ApiKey %>&modelid=<%= this.ModelId%>"><%#(Container.DataItem as string)%></state>
 </ItemTemplate>
 <FooterTemplate></states>
 </FooterTemplate>

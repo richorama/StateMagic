@@ -23,8 +23,8 @@ namespace StateMagic.Web
 
         internal static CredentialData LogIn(string username, Guid apiKey)
         {
-            try
-            {
+            //try
+            //{
                 CredentialData cd = CredentialData.FindOne(new ICriterion[] { Restrictions.Eq("Username", username), Restrictions.Eq("ApiKey", apiKey) });
                 if (cd != null && cd.ApiKey == apiKey)
                 {
@@ -37,11 +37,11 @@ namespace StateMagic.Web
                 {
                     throw new System.Security.SecurityException();
                 }
-            }
-            catch
-            {
-                throw new System.Security.SecurityException();
-            }
+            //}
+            //catch
+            //{
+            //    throw new System.Security.SecurityException();
+            //}
             throw new System.Security.SecurityException();
         }
 

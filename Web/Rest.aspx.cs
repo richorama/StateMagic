@@ -33,6 +33,9 @@ namespace StateMagic.Web
                 // no model found
                 return;
             }
+            cd.TransactionBalance--;
+            cd.Save();// update balance.
+
             var model = modelData.DeserializedStateModel;
 
             StateMagic.Common.State initialState = null;

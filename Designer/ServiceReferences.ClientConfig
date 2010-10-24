@@ -9,7 +9,7 @@
             </basicHttpBinding>
         </bindings>
         <client>
-            <endpoint address="http://localhost:53824/ModelServices.asmx"
+            <endpoint address="http://statemagic.com/ModelServices.asmx"
                 binding="basicHttpBinding" bindingConfiguration="ModelServicesSoap"
                 contract="ModelServices.ModelServicesSoap" name="ModelServicesSoap" />
         </client>

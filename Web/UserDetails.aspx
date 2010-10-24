@@ -6,7 +6,6 @@
 </ul>
 </asp:Content>
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
-<form id="form1" runat="server">
                      
 <h3>Hi, <%= this.Credentials.Username%></h3>
 <br/>
@@ -108,5 +107,4 @@
 <span class="kwrd">&lt;/</span><span class="html">states</span><span class="kwrd">&gt;</span> </pre>
 </div>
 </div>
-</form>
 </asp:Content>

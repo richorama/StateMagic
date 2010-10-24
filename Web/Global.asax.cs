@@ -16,10 +16,6 @@ namespace StateMagic.Web
         protected void Application_Start(object sender, EventArgs e)
         {
             ActiveRecordStarter.Initialize(typeof(CredentialData).Assembly, ActiveRecordSectionHandler.Instance);
-
-            // If you want to let ActiveRecord create the schema for you:
-            ActiveRecordStarter.CreateSchema();
-
         }
 
         protected void Session_Start(object sender, EventArgs e)
