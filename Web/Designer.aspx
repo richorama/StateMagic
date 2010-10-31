@@ -66,7 +66,7 @@
     <asp:Content ID="Content3" runat="server" ContentPlaceHolderID="ContentPlaceHolder1">
     <form id="form1" runat="server">
     <div id="silverlightControlHost">
-        <object data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="100%" height="100%">
+        <object data="data:application/x-silverlight-2," type="application/x-silverlight-2" width="100%" height="600px">
 		  <param name="source" value="ClientBin/StateDesigner.xap"/>
 		  <param name="onError" value="onSilverlightError" />
 		  <param name="background" value="white" />
