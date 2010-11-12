@@ -93,7 +93,7 @@
     <h3>RESTful Interface</h3>
     For the REST interface, use this URL:<br />
     <br />
-    <a href="http://statemagic.com/Rest.aspx?username=<%= Server.UrlEncode(this.Credentials.Username)%>&apikey=<%=this.Credentials.ApiKey.ToString() %>&modelid=1">http://statemagic.com/Rest.aspx?username=<%= Server.UrlEncode(this.Credentials.Username)%>&apikey=<%=this.Credentials.ApiKey.ToString() %>&modelid=<%= this.LastModelId.ToString() %></a><br /><br />
+    <a href="http://statemagic.com/Rest.aspx?username=<%= Server.UrlEncode(this.Credentials.Username)%>&apikey=<%=this.Credentials.ApiKey.ToString() %>&modelid=<%= this.LastModelId.ToString() %>">http://statemagic.com/Rest.aspx?username=<%= Server.UrlEncode(this.Credentials.Username)%>&apikey=<%=this.Credentials.ApiKey.ToString() %>&modelid=<%= this.LastModelId.ToString() %></a><br /><br />
     Example output:<br />
     <div style="border:1px solid #67AAF4; padding:5px; -moz-border-radius:5px; border-radius:5px;">
     <pre class="csharpcode">
