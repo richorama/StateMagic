@@ -29,6 +29,14 @@ namespace StateMagic.Designer
 
         public bool AccountCreated { get; set; }
 
+        private ModelServices.ModelServicesSoapClient CreateClient()
+        {
+            var client = new ModelServicesSoapClient();
+            var ep = new System.ServiceModel.EndpointAddress(@"http://" + System.Windows.Browser.HtmlPage.Document.DocumentUri.Host + @"/ModelServices.asmx");
+            client.Endpoint.Address = ep;
+            return client;
+        }
+
         public Page1()
         {
             InitializeComponent();
@@ -38,7 +46,7 @@ namespace StateMagic.Designer
             if (App.ModelId != 0 && !string.IsNullOrEmpty(App.Username))
             {
                 // load initial state
-                ModelServices.ModelServicesSoapClient client = new ModelServicesSoapClient();
+                var client = CreateClient();
                 client.GetModelCompleted += new EventHandler<GetModelCompletedEventArgs>(client_GetModelCompleted);
                 client.GetModelAsync(App.Username, App.APIKey, App.ModelId, App.SystemKey);
             }
@@ -106,7 +114,7 @@ namespace StateMagic.Designer
                 {
                     if (accountForm.DialogResult.HasValue && accountForm.DialogResult.Value)
                     {
-                        var client = new ModelServices.ModelServicesSoapClient();
+                        var client = CreateClient();
                         AccountCreated = true;
                         App.Username = accountForm.Username;
                         App.Password = accountForm.Password;
@@ -482,7 +490,7 @@ namespace StateMagic.Designer
         public void SaveModel()
         {
             StateModel sm = ModelConverter.ToCommon(this.stateControls, App.ModelId, this.ModelName);
-            var client = new ModelServices.ModelServicesSoapClient();
+            var client = CreateClient();
             client.SaveModelCompleted += delegate (object sender, SaveModelCompletedEventArgs args)
             {
                 if (args.Error != null)
