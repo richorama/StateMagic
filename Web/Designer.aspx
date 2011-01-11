@@ -79,4 +79,15 @@
 		  </a>
 	    </object><iframe id="_sl_historyFrame" style="visibility:hidden;height:0px;width:0px;border:0px"></iframe></div>
         </form>
+        <script type="text/javascript"><!--
+            google_ad_client = "ca-pub-5924621386189607";
+            /* Ad 2 */
+            google_ad_slot = "4187415664";
+            google_ad_width = 728;
+            google_ad_height = 90;
+        //-->
+        </script>
+        <script type="text/javascript"
+        src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+        </script>
     </asp:Content>
